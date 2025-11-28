@@ -37,14 +37,14 @@ const Navbar: React.FC = () => {
             className="flex items-center hover:underline"
           >
             <FaPhoneAlt className="mr-2" />
-            +91-6376228917
+            +91-0000000000
           </a>
           <a
             href="mailto:contact@nexifydigital.in"
             className="flex items-center hover:underline"
           >
             <FaEnvelope className="mr-2" />
-            nexifydigital78@gmail.com
+            sundargroup@gmail.com
           </a>
         </div>
         <nav aria-label="Social Media Links" className="flex space-x-4 text-[#3647AD]">
