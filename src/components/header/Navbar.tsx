@@ -70,7 +70,7 @@ const Navbar: React.FC = () => {
           isScrolled ? "fixed top-0 w-full z-20" : ""
         }`}
       >
-        <div className="mx-[-25px] sm:mx-0 flex justify-center items-center gap-3 h-14 mt-2 ">
+        <div className="mx-[-25px]s flex justify-center items-center gap-3 h-14 mt-2 ">
           <Link to="/" className="flex items-center gap-2 font-bold text-3xl" aria-label="Nexify Digital Home">
             Sundar Group
           </Link>
@@ -81,7 +81,7 @@ const Navbar: React.FC = () => {
         <nav className="hidden md:flex gap-8 text-[12px] md:text-[18px]" aria-label="Primary Navigation">
           <ul className="flex gap-7 text-black">
             <li><Link className="hover:border-b-2 border-black" to="/">Home</Link></li>
-            <li><Link className="hover:border-b-2 border-black" to="/about">About Us</Link></li>
+            <li><Link className="hover:border-b-2 border-black" to="/about-us">About Us</Link></li>
             <li><Link className="hover:border-b-2 border-black" to="/services">Services</Link></li>
             <li><Link className="hover:border-b-2 border-black" to="/blogs">Blogs</Link></li>
             <li><Link className="hover:border-b-2 border-black" to="/contact-us">Contact Us</Link></li>
@@ -155,7 +155,7 @@ const Navbar: React.FC = () => {
             </div>
           </Link>
     
-          <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
+          <Link to="/contact-us" onClick={() => setIsMenuOpen(false)}>
             <div className="flex justify-between items-center gap-6">
               <p>Contact Us</p>
               <FiArrowRight />

@@ -1,25 +1,29 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import About from './pages/About';
 import Services from './pages/Services';
-import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import BranchLanding from './pages/BranchLanding';
 import Navbar from './components/header/Navbar';
-import Home from './pages/Home.';
+import AboutPage from './pages/about';
+import HomePage from './pages/home';
+import BlogMainPage from './pages/blog';
+import BlogDetailsPage from './pages/blog/BlogDetailsPage';
+import Footer from './components/footer/Footer';
 
 const App: React.FC = () => {
   return (
     <div>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about-us" element={<AboutPage />} />
         <Route path="/services" element={<Services />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/blogs" element={<BlogMainPage />} />
+        <Route path="/blogs/:slug" element={<BlogDetailsPage />} />
+        <Route path="/contact-us" element={<Contact />} />
         <Route path="/branch/:slug" element={<BranchLanding />} />
       </Routes>
+      <Footer/>
     </div>
   );
 };

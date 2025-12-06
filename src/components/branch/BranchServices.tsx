@@ -34,7 +34,7 @@ const mockBranches: Branch[] = [
   },
   {
     id: "3",
-    name: "Sundar Tech",
+    name: "Sundar Resort",
     slug: "bangalore",
     address: "789 Tech Park, Bangalore, KA 560001",
     phone: "+91 98765 43212",

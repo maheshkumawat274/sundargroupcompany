@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { Branch } from '../components/types';
-import { getBranchBySlug } from '../components/services/BranchServices';
+import { getBranchBySlug } from '../components/branch/BranchServices';
 
 export const useBranch = (slug: string) => {
   const [branch, setBranch] = useState<Branch | null>(null);

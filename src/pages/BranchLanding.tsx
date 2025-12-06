@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useBranch } from '../hooks/useBranch';
-import BranchPageLayout from '../components/home/BranchPageLayout';
+import BranchPageLayout from '../components/branch/BranchPageLayout';
 
 const BranchLanding: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
