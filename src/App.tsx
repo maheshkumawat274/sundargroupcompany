@@ -9,10 +9,12 @@ import HomePage from './pages/home';
 import BlogMainPage from './pages/blog';
 import BlogDetailsPage from './pages/blog/BlogDetailsPage';
 import Footer from './components/footer/Footer';
+import ScrollTop from './components/ScrollTop';
 
 const App: React.FC = () => {
   return (
     <div>
+      <ScrollTop/>
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
