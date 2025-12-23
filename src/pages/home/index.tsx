@@ -1,13 +1,10 @@
 import React from 'react';
-import { useBranches } from '../../hooks/useBranches';
 import TopSection from '../../components/home/TopSection';
 import BranchSlider from '../../components/branch/BranchSlider';
 import HomeBlogSection from '../../components/blog/HomeBlogSection';
 import WhyChooseUs from '../../components/home/WhyChoose';
 import HomeAboutSection from '../../components/home/HomeAboutSection';
 const HomePage: React.FC = () => {
-  const { branches, isLoading } = useBranches();
-  
   // Mock services & blogs (API-ready)
   // const [services, setServices] = React.useState<any[]>([]);
 
@@ -24,11 +21,7 @@ const HomePage: React.FC = () => {
       {/* Hero Section */}
       <TopSection/>
       {/* Branch Slider */}
-      {isLoading ? (
-        <div className="text-center py-12">Loading branches...</div>
-      ) : (
-        <BranchSlider branches={branches} />
-      )}
+      <BranchSlider/>
       <HomeAboutSection/>
       <WhyChooseUs/>
       <HomeBlogSection/>

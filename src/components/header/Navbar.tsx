@@ -72,7 +72,7 @@ const Navbar: React.FC = () => {
       >
         <div className="mx-[-25px]s flex justify-center items-center gap-3 h-14 mt-2 ">
           <Link to="/" className="flex items-center gap-2 font-bold text-3xl" aria-label="Nexify Digital Home">
-            Sundar Group
+            <img src="/imgs/sundar.jpg" className="w-14 h-14"></img>
           </Link>
         </div>
 

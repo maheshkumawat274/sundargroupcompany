@@ -1,24 +1,36 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import type { Branch } from "../types";
 
+/* =====================
+   TYPE
+===================== */
+export interface Branch {
+  id: number;
+  name: string;
+  description: string;
+  heroImage: string;
+  path: string; // 👈 manual route
+}
+
+/* =====================
+   CARD COMPONENT
+===================== */
 interface BranchCardProps {
   branch: Branch;
 }
 
 const BranchCard: React.FC<BranchCardProps> = ({ branch }) => {
   return (
-    <Link to={`/branch/${branch.slug}`}>
+    <Link to={branch.path}>
       <div
         className="
-          relative rounded-2xl overflow-hidden 
-          shadow-lg hover:shadow-2xl 
-          transition-all duration-500 
+          relative rounded-2xl overflow-hidden
+          shadow-lg hover:shadow-2xl
+          transition-all duration-500
           cursor-pointer group
           hover:-translate-y-2
         "
       >
-
         {/* Image */}
         <img
           src={branch.heroImage}
@@ -30,45 +42,30 @@ const BranchCard: React.FC<BranchCardProps> = ({ branch }) => {
           "
         />
 
-        {/* BLACK OPACITY OVERLAY */}
+        {/* Overlay */}
         <div className="absolute inset-0 bg-black/50 z-10" />
 
-        {/* CONTENT OVERLAY */}
-        <div
-          className="
-            absolute inset-0 z-20 
-            flex flex-col justify-end 
-            p-6 text-white
-          "
-        >
-          {/* Title */}
-          <h3 className="text-xl font-bold uppercase tracking-wide drop-shadow-md">
+        {/* Content */}
+        <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 text-white">
+          <h3 className="text-xl font-bold uppercase tracking-wide">
             {branch.name}
           </h3>
 
-          {/* Description limited to 2 lines */}
-          <p
-            className="
-              text-sm text-gray-200 mt-2 
-              line-clamp-2
-            "
-          >
+          <p className="text-sm text-gray-200 mt-2 line-clamp-2">
             {branch.description}
           </p>
 
-          {/* Explore Button */}
-          <button
+          <span
             className="
-              mt-4 w-fit px-5 py-2 
-              bg-white/90 text-black font-semibold text-sm 
-              rounded-full shadow-md 
+              mt-4 w-fit px-5 py-2
+              bg-white/90 text-black font-semibold text-sm
+              rounded-full shadow-md
               hover:bg-white transition
             "
           >
-           <Link to={`/branch/${branch.slug}`}>Explore Now</Link> 
-          </button>
+            Explore Now
+          </span>
         </div>
-
       </div>
     </Link>
   );
