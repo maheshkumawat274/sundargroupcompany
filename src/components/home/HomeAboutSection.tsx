@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const HomeAboutSection: React.FC = () => {
   return (
-    <section className="py-20 bg-white px-4 md:px-16">
+    <section className="py-10 bg-white px-4 md:px-16">
       <div className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
 
         {/* LEFT SIDE — TEXT */}

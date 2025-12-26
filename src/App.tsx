@@ -13,6 +13,8 @@ import SundarDeveloperPage from './pages/branchlandingpages/sundardeveloper';
 import SundarPrintPage from './pages/branchlandingpages/sundarprint';
 import ResortServicesPage from './components/branchlandingpage/sundarresort/services/ResortServicesPage';
 import ResortServiceLandingPage from './components/branchlandingpage/sundarresort/services/ResortServicesLandingpage';
+import StrategySection from './components/home/OurStrategy/StrategySection';
+import StrategyDetail from './components/home/OurStrategy/StrategyDetail';
 
 const App: React.FC = () => {
   return (
@@ -25,11 +27,17 @@ const App: React.FC = () => {
         <Route path="/blogs" element={<BlogMainPage />} />
         <Route path="/blogs/:slug" element={<BlogDetailsPage />} />
         <Route path="/contact-us" element={<Contact />} />
+        {/* Strategy Section routes */}
+        <Route path="/our-strategy" element={<StrategySection />} />
+        <Route path="/our-strategy/:id" element={<StrategyDetail />} />
+        {/* Branch routes */}
         <Route path="/branch/sundar-resort" element={<SundarResortPage />} />
-         <Route path="/branch/sundar-print" element={<SundarPrintPage />} />
-          <Route path="/branch/sundar-developer" element={<SundarDeveloperPage />} />
-          <Route path="/services-resort" element={<ResortServicesPage />} />
-            <Route path="/services-resort/:slug" element={<ResortServiceLandingPage />} />
+        <Route path="/branch/sundar-print" element={<SundarPrintPage />} />
+        <Route path="/branch/sundar-developer" element={<SundarDeveloperPage />} />
+        {/* Resort Services routes */}
+        <Route path="/branch/sundar-resort/services" element={<ResortServicesPage />} />
+        <Route path="/branch/sundar-resort/services/:serviceSlug" element={<ResortServiceLandingPage />} />
+        
       </Routes>
       <Footer/>
     </div>

@@ -67,14 +67,19 @@ const Navbar: React.FC = () => {
       {/* --- Main Header --- */}
       <div
         className={`bg-white px-4 md:px-16 py-3 flex justify-between items-center shadow transition-all duration-300 ${
-          isScrolled ? "fixed top-0 w-full z-20" : ""
+          isScrolled ? "fixed top-0 w-full z-50" : ""
         }`}
       >
-        <div className="mx-[-25px]s flex justify-center items-center gap-3 h-14 mt-2 ">
-          <Link to="/" className="flex items-center gap-2 font-bold text-3xl" aria-label="Nexify Digital Home">
-            <img src="/imgs/sundar.jpg" className="w-14 h-14"></img>
-          </Link>
-        </div>
+        <div className="flex justify-center items-center gap-3 h-18 mt-2 overflow-hidden">
+  <Link to="/" className="flex items-center gap-2 font-bold text-3xl">
+    <img
+      src="/imgs/logo.png"
+      className="w-32 h-20 object-cover object-center"
+      alt="Nexify Digital Logo"
+    />
+  </Link>
+</div>
+
 
 
         {/* Navigation - Desktop */}

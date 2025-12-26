@@ -1,53 +1,178 @@
-import React from "react";
+import { useEffect, useState } from "react";
 
-const TopSection: React.FC = () => {
+type Slide = {
+  title: string;
+  image: string;
+};
+
+const slides: Slide[] = [
+  {
+    title: "Sundar Resort",
+    image: "/imgs/JSD09255.webp",
+  },
+  {
+    title: "Sundar Print",
+    image: "/imgs/3JX7uE466ZoNjDth2Y5TFR.jpg",
+  },
+  {
+    title: "Sundar Developer",
+    image: "/imgs/1721200680663.png",
+  },
+];
+
+const TopSectionMain = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // Infinite loop effect - SIMPLE AND WORKING
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % slides.length);
+    }, 4000); // Change every 4 seconds
+
+    return () => clearInterval(interval);
+  }, []); // Empty dependency array = runs once on mount
+
+  // For smooth transition, we need next index
+  const nextIndex = (activeIndex + 1) % slides.length;
+  const isTransitioning = false; // We'll handle transition differently
+
   return (
-    <section
-      className="relative min-h-[70vh] w-full px-16 bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage:
-          "url('/imgs/Hero-Sundar-Group-Comapny.webp')", // 👉 is path ko apni image se replace karna
-      }}
-    >
-      {/* Dark overlay with opacity */}
-      <div className="absolute inset-0 bg-slate-900/60" aria-hidden="true" />
+    <section className="relative h-[60vh] md:h-screen w-full flex items-center justify-center md:justify-start overflow-hidden">
+      
+      {/* BACKGROUND IMAGES with smooth crossfade */}
+      <div className="absolute inset-0">
+        {/* Current Image */}
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+              index === activeIndex 
+                ? "opacity-100 z-10" 
+                : "opacity-0 z-0"
+            }`}
+            style={{
+              backgroundImage: `url(${slide.image})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          />
+        ))}
+      </div>
 
-      {/* Content */}
-      <div className="relative z-10 flex min-h-[70vh] items-center">
-        <div className="mx-auto flex w-full flex-col gap-6 text-center md:text-left">
-          <p className="text-sm font-medium tracking-[0.25em] text-slate-200 uppercase">
-            Sundar Group
-          </p>
+      {/* DARK OVERLAY */}
+      <div className="absolute inset-0 bg-black opacity-50 z-10" />
 
-          <h1 className="text-3xl font-semibold leading-tight text-white sm:text-4xl md:text-5xl">
-            A Multi-Sector Group Driven by Innovation & Excellence
-          </h1>
-
-          <p className="max-w-2xl text-sm sm:text-base text-slate-200/90 mx-auto md:mx-0">
-            Sundar Group has been committed to delivering innovation,
-            trust, and quality across multiple sectors, shaping experiences and
-            enriching communities.
-          </p>
-
-          {/* Visual-only button (no click handler) */}
-          <div className="mt-4">
-            <span
-              className="
-                inline-flex items-center justify-center
-                rounded-full px-6 py-2.5
-                text-sm sm:text-base font-medium
-                hover:bg-white hover:text-black
-                border-2 border-white text-white
-                shadow-md shadow-black/30 transition-all duration-300 cursor-pointer
-              "
-            >
-              Explore Our Businesses
-            </span>
+      {/* CONTENT - Mobile responsive layout */}
+      <div className="relative z-20 w-full px-4 md:px-16">
+        
+        {/* MOBILE: Vertical | DESKTOP: Horizontal */}
+        <div
+          className="flex flex-col md:flex-row 
+                     items-center md:items-center 
+                     text-center md:text-left"
+        >
+          
+          {/* LEFT / TOP TEXT */}
+          <div className="mb-2 md:mb-0 text-4xl md:text-5xl tracking-wide text-white whitespace-nowrap">
+            Sundar Group | 
           </div>
+      
+          {/* SEPARATOR */}
+          {/* <div
+            className="bg-white/50
+                       w-px h-8 md:h-px md:w-10
+                       my-2 md:my-0
+                       mx-0 md:mx-4"
+          ></div>
+       */}
+          {/* RIGHT / BOTTOM TEXT */}
+          <div className="relative py-10  w-[35ch] md:w-[50ch] overflow-hidden">
+            
+            {/* Text Container */}
+            <div className="relative h-full">
+              {slides.map((slide, index) => (
+                <div
+                  key={`${slide.title}-${index}`}
+                  className={`absolute inset-0 flex items-center justify-center md:justify-start
+                              transition-all duration-1000 ease-in-out
+                              ${
+                                index === activeIndex
+                                  ? "translate-y-0 opacity-100"
+                                  : index === nextIndex
+                                  ? "translate-y-full opacity-0"
+                                  : "-translate-y-full opacity-0"
+                              }`}
+                >
+                  <span className="text-white text-4xl md:text-5xl font-bold whitespace-nowrap px-0 md:px-4">
+                    {slide.title}
+                  </span>
+                </div>
+              ))}
+            </div>
+      
+          </div>
+      
         </div>
       </div>
+      
+
+      {/* Progress indicator (optional) */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setActiveIndex(index)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              index === activeIndex 
+                ? "bg-emerald-400 w-8" 
+                : "bg-white/50"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* CSS for smooth transitions */}
+      <style jsx global>{`
+        @keyframes slideUp {
+          0% {
+            transform: translateY(100%);
+            opacity: 0;
+          }
+          15% {
+            transform: translateY(0);
+            opacity: 1;
+          }
+          85% {
+            transform: translateY(0);
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(-100%);
+            opacity: 0;
+          }
+        }
+
+        .animate-slide {
+          animation: slideUp 4s ease-in-out infinite;
+        }
+
+        /* Ensure smooth image transitions */
+        .transition-all {
+          transition-property: all;
+        }
+        
+        .duration-1000 {
+          transition-duration: 1000ms;
+        }
+        
+        .ease-in-out {
+          transition-timing-function: ease-in-out;
+        }
+      `}</style>
     </section>
   );
 };
 
-export default TopSection;
+export default TopSectionMain;

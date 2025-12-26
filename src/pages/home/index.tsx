@@ -1,44 +1,27 @@
 import React from 'react';
-import TopSection from '../../components/home/TopSection';
-import BranchSlider from '../../components/branch/BranchSlider';
-import HomeBlogSection from '../../components/blog/HomeBlogSection';
+import BranchSlider from '../../components/home/branch/BranchSlider';
+import HomeBlogSection from '../../components/home/blog/HomeBlogSection';
 import WhyChooseUs from '../../components/home/WhyChoose';
 import HomeAboutSection from '../../components/home/HomeAboutSection';
+import TopSectionMain from '../../components/home/TopSection';
+import LegacyLeadership from '../../components/home/LeaderShip';
+import StrategySection from '../../components/home/OurStrategy/StrategySection';
+import InSumSection from '../../components/home/InSumSection';
+import FaqSection from '../../components/home/FAQ';
+import ContactHome from '../../components/home/ContactHome';
 const HomePage: React.FC = () => {
-  // Mock services & blogs (API-ready)
-  // const [services, setServices] = React.useState<any[]>([]);
-
-  // React.useEffect(() => {
-  //   const loadData = async () => {
-  //     const serviceData = await getServices();
-  //     setServices(serviceData);
-  //   };
-  //   loadData();
-  // }, []);
-
   return (
     <>
-      {/* Hero Section */}
-      <TopSection/>
-      {/* Branch Slider */}
+      <TopSectionMain/>
       <BranchSlider/>
       <HomeAboutSection/>
+      <LegacyLeadership/>
       <WhyChooseUs/>
+      <StrategySection/>
       <HomeBlogSection/>
-
-      {/* Services Preview */}
-      {/* <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.slice(0, 3).map(service => (
-              <ServiceCard key={service.id} service={service} />
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      
+      <InSumSection/>
+      <ContactHome/>
+      <FaqSection/>
     </>
   );
 };
