@@ -19,8 +19,9 @@ const HomePage: React.FC = () => {
       <WhyChooseUs/>
       <StrategySection/>
       <HomeBlogSection/>
-      <InSumSection/>
+      
       <ContactHome/>
+      <InSumSection/>
       <FaqSection/>
     </>
   );

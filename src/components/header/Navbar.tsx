@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
     <header>
       {/* --- Top Header --- */}
       <div className="bg-[#EDEDE9] text-sm py-2 px-4 md:px-16 justify-between items-center hidden md:flex ">
-        <div className="flex space-x-4 text-[#3647AD]">
+        <div className="flex space-x-4 text-[#345570]">
           <a
             href="tel:+916376228917"
             className="flex items-center hover:underline"
@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
             sundargroup@gmail.com
           </a>
         </div>
-        <nav aria-label="Social Media Links" className="flex space-x-4 text-[#3647AD]">
+        <nav aria-label="Social Media Links" className="flex space-x-4 text-[#345570]">
           <a href="https://www.facebook.com/profile.php?id=61575985723004" aria-label="Facebook"><FaFacebookF /></a>
           <a href="https://www.instagram.com/nexifydigital.in/" aria-label="Instagram"><FaInstagram /></a>
           <a href="https://www.linkedin.com/company/nexifydigital-solutions/" aria-label="LinkedIn"><FaLinkedinIn /></a>
@@ -105,7 +105,7 @@ const Navbar: React.FC = () => {
           <button
             onClick={() => setIsMenuOpen(true)}
             aria-label="Open Mobile Menu"
-            className="text-3xl text-[#3647AD]"
+            className="text-3xl text-[#345570]"
           >
             <HiMenu />
           </button>
@@ -121,7 +121,7 @@ const Navbar: React.FC = () => {
       >
         {/* Close Button */}
         <div className="flex justify-between items-center px-4 py-4 border-b border-white/20">
-          <h2 className="text-2xl font-bold text-[#3647AD]">SundarGroup</h2>
+          <h2 className="text-2xl font-bold text-[#345570]">SundarGroup</h2>
           <button
             onClick={() => setIsMenuOpen(false)}
             aria-label="Close Mobile Menu"
