@@ -34,7 +34,6 @@ const TopSectionMain = () => {
 
   // For smooth transition, we need next index
   const nextIndex = (activeIndex + 1) % slides.length;
-  const isTransitioning = false; // We'll handle transition differently
 
   return (
     <section className="relative h-[60vh] md:h-screen w-full flex items-center justify-center md:justify-start overflow-hidden">
@@ -134,7 +133,7 @@ const TopSectionMain = () => {
       </div>
 
       {/* CSS for smooth transitions */}
-      <style jsx global>{`
+      <style>{`
         @keyframes slideUp {
           0% {
             transform: translateY(100%);
