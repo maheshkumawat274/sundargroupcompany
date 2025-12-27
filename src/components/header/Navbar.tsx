@@ -66,19 +66,20 @@ const Navbar: React.FC = () => {
 
       {/* --- Main Header --- */}
       <div
-        className={`bg-white px-4 md:px-16 py-3 flex justify-between items-center shadow transition-all duration-300 ${
+        className={`bg-white px-4 md:px-16 flex justify-between items-center shadow transition-all duration-300 ${
           isScrolled ? "fixed top-0 w-full z-50" : ""
         }`}
       >
-        <div className="flex justify-center items-center gap-3 h-18 mt-2 overflow-hidden">
-  <Link to="/" className="flex items-center gap-2 font-bold text-3xl">
-    <img
-      src="/imgs/logo.png"
-      className="w-32 h-20 object-cover object-center"
-      alt="Nexify Digital Logo"
-    />
-  </Link>
-</div>
+       
+       <div className="h-full w-24 overflow-hidden flex items-center">
+          <Link to="/" className="block h-full w-full">
+            <img
+              src="/imgs/logo.png"
+              alt="Podcast Logo"
+              className="h-full w-full object-cover scale-135"
+            />
+          </Link>
+        </div>
 
 
 

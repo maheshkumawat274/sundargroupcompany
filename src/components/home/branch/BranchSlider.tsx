@@ -1,5 +1,5 @@
-
-import Slider from "react-slick";
+import { useRef } from "react";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import BranchCard, { type Branch } from "./BranchCard";
 
 const branches: Branch[] = [
@@ -26,63 +26,69 @@ const branches: Branch[] = [
   },
 ];
 
-
 const BranchSlider = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
 
-  /*
-  🔮 FUTURE API CALL (commented)
-  useEffect(() => {
-    fetch("/api/branches")
-      .then(res => res.json())
-      .then(data => setBranches(data));
-  }, []);
-  */
+  const scrollLeft = () => {
+    scrollRef.current?.scrollBy({ left: -320, behavior: "smooth" });
+  };
 
-  const settings = {
-    infinite: true,
-    centerMode: true,
-    autoplay: true,
-    autoplaySpeed: 2200,
-    speed: 900,
-    arrows: false,
-    pauseOnHover: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: { slidesToShow: 2,slidesToScroll: 1 },
-      },
-      {
-        breakpoint: 640,
-        settings: { slidesToShow: 1,slidesToScroll: 1, centerMode: false },
-      },
-    ],
+  const scrollRight = () => {
+    scrollRef.current?.scrollBy({ left: 320, behavior: "smooth" });
   };
 
   return (
     <section className="py-6 md:py-14 bg-gray-50 px-4">
-      <div className="container max-w-6xl mx-auto ">
+      <div className="max-w-6xl mx-auto">
 
-        {/* Heading */}
-        <h2 className="text-3xl font-bold text-center text-gray-800">
-          Our Divisions
-        </h2>
-         
-          {/* ⭐ Professional Description */}
-        <p className="text-center text-gray-600 max-w-2xl mx-auto mb-8 text-sm md:text-base">
-          Explore the diverse business verticals that shape the legacy of Sundar Group.
-        </p>
+        {/* Header */}
+        <div className="flex items-start justify-between gap-4 mb-6">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+              Our Divisions
+            </h2>
+            <p className="text-gray-600 text-sm md:text-base mt-1 max-w-md">
+              Explore the diverse business verticals that shape the legacy of Sundar Group.
+            </p>
+          </div>
 
-        {/* Slider Container */}
-        <Slider {...settings}>
+          {/* Controls (Mobile + Desktop) */}
+          <div className="flex gap-2 shrink-0 ">
+            <button
+              onClick={scrollLeft}
+              className="w-9 h-9 md:w-10 md:h-10
+              flex items-center justify-center rounded-full
+              bg-white shadow hover:bg-gray-100 transition"
+            >
+              <FiChevronLeft className="text-base md:text-xl" />
+            </button>
+
+            <button
+              onClick={scrollRight}
+              className="w-9 h-9 md:w-10 md:h-10
+              flex items-center justify-center rounded-full
+              bg-white shadow hover:bg-gray-100 transition"
+            >
+              <FiChevronRight className="text-base md:text-xl" />
+            </button>
+          </div>
+        </div>
+
+        {/* Scroll Cards */}
+        <div
+          ref={scrollRef}
+          className="flex gap-5 overflow-x-auto scroll-smooth no-scrollbar px-1"
+        >
           {branches.map((branch) => (
-            <div key={branch.id} className="px-4">
+            <div
+              key={branch.id}
+              className="min-w-[260px] sm:min-w-[300px] md:min-w-[340px]"
+            >
               <BranchCard branch={branch} />
             </div>
           ))}
-        </Slider>
-        
+        </div>
+
       </div>
     </section>
   );
