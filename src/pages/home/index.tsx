@@ -1,6 +1,6 @@
 import React from 'react';
 import BranchSlider from '../../components/home/branch/BranchSlider';
-import HomeBlogSection from '../../components/home/blog/HomeBlogSection';
+import HomeBlogSection from '../../components/blog/HomeBlogSection';
 import WhyChooseUs from '../../components/home/WhyChoose';
 import HomeAboutSection from '../../components/home/HomeAboutSection';
 import TopSectionMain from '../../components/home/TopSection';

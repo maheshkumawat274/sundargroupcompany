@@ -84,7 +84,7 @@ const Navbar: React.FC = () => {
 
 
         {/* Navigation - Desktop */}
-        <nav className="hidden md:flex gap-8 font text-[12px] md:text-[15px]" aria-label="Primary Navigation">
+        <nav className="hidden lg:flex gap-8 font-sans text-lg" aria-label="Primary Navigation">
           <ul className="flex gap-7 text-black">
             <li><Link className="hover:border-b-2 border-black" to="/">Home</Link></li>
             <li><Link className="hover:border-b-2 border-black" to="/who-we-are">Who We Are</Link></li>
@@ -104,7 +104,7 @@ const Navbar: React.FC = () => {
         </div> */}
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <button
             onClick={() => setIsMenuOpen(true)}
             aria-label="Open Mobile Menu"

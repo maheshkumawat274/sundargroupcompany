@@ -1,5 +1,5 @@
-import BlogAbout from "../../components/home/blog/BlogAbout"
-import BlogTopSection from "../../components/home/blog/BlogTopSection"
+import BlogAbout from "../../components/blog/BlogAbout"
+import BlogTopSection from "../../components/blog/BlogTopSection"
 import BlogsPage from "./BlogPages"
 
 const BlogMainPage = () => {

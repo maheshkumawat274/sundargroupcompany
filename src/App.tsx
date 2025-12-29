@@ -1,6 +1,5 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Contact from './pages/Contact';
 import Navbar from './components/header/Navbar';
 import AboutPage from './pages/about';
 import HomePage from './pages/home';
@@ -13,6 +12,12 @@ import ResortServiceLandingPage from './components/branchlandingpage/sundarresor
 import StrategySection from './components/home/OurStrategy/StrategySection';
 import StrategyDetail from './components/home/OurStrategy/StrategyDetail';
 import { BranchLandingPage } from './pages/branchlandingpages/BranchLandingpage';
+import ServicesPage from './pages/services';
+import VenturesPage from './pages/ventures';
+import ImpactPage from './pages/impact';
+import ContactPage from './pages/contact';
+import FloatingSocialIcons from './components/FloatingBtn';
+import FloatingWhatsappButton from './components/FloatingWPbtn';
 
 const App: React.FC = () => {
   return (
@@ -21,10 +26,13 @@ const App: React.FC = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/about-us" element={<AboutPage />} />
+        <Route path="/who-we-are" element={<AboutPage />} />
+        <Route path='/what-we-build' element={<ServicesPage />} />
+        <Route path='/ventures' element={<VenturesPage />} />
+        <Route path='/impact' element={<ImpactPage />} />
         <Route path="/blogs" element={<BlogMainPage />} />
         <Route path="/blogs/:slug" element={<BlogDetailsPage />} />
-        <Route path="/contact-us" element={<Contact />} />
+        <Route path="/contact-us" element={<ContactPage />} />
         {/* Strategy Section routes */}
         <Route path="/our-strategy" element={<StrategySection />} />
         <Route path="/our-strategy/:id" element={<StrategyDetail />} />
@@ -36,6 +44,8 @@ const App: React.FC = () => {
         
       </Routes>
       <Footer/>
+      <FloatingSocialIcons/>
+      <FloatingWhatsappButton/>
     </div>
   );
 };
