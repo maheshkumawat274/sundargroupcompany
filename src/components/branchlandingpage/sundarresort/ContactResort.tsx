@@ -1,17 +1,26 @@
 import React, { useState } from "react";
 
+type ContactForm = {
+  name: string;
+  email: string;
+  mobile: string;
+  message: string;
+};
+
+type ContactErrors = Partial<Record<keyof ContactForm, string>>;
+
 const ContactResort = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ContactForm>({
     name: "",
     email: "",
     mobile: "",
     message: "",
   });
 
-  const [errors, setErrors] = useState<any>({});
+  const [errors, setErrors] = useState<ContactErrors>({});
 
   const validate = () => {
-    const err: any = {};
+    const err: ContactErrors = {};
     if (!formData.name) err.name = "Name is required";
     if (!formData.email) err.email = "Email is required";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
@@ -35,7 +44,7 @@ const ContactResort = () => {
   };
 
   return (
-    <section className="relative py-24 px-6 bg-gradient-to-br from-[#f6f8fb] to-[#eef2f7]">
+    <section className="relative py-12 px-6 bg-white">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
 
         {/* LEFT CONTENT */}

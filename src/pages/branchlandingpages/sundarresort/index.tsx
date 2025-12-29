@@ -1,4 +1,5 @@
 import AboutResort from "../../../components/branchlandingpage/sundarresort/AboutResort"
+import ActivitiesExperienceResort from "../../../components/branchlandingpage/sundarresort/ActivitiesExperienceResort"
 import ContactResort from "../../../components/branchlandingpage/sundarresort/ContactResort"
 import GallarySection from "../../../components/branchlandingpage/sundarresort/GallarySection"
 import HeroResort from "../../../components/branchlandingpage/sundarresort/HeroResort"
@@ -15,6 +16,7 @@ const SundarResortPage = () => {
         <GallarySection /> 
         <ResortServicesPage/> 
         <WhyResort /> 
+        <ActivitiesExperienceResort/>
         <ContactResort/> 
       </div>
     </>

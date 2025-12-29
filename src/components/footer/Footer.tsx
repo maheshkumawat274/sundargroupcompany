@@ -5,20 +5,20 @@ import SocialMediaIcons from "../contactus/SocailMediaLinks";
 const Footer: React.FC = () => {
   return (
     <>
-      <section className="w-full bg-[#345570] py-4 px-2 pt-10 pb-10 flex items-center justify-center text-center">
+      <section className="w-full bg-[#AC7C30] py-4 px-2 pt-10 pb-10 flex items-center justify-center text-center">
         <div className="flex flex-col sm:flex-row items-center text-white font-bold text-lg sm:text-3xl gap-4">
           <span>Need Help? Chat with Expert Developers!</span>
           <a
             href="https://wa.me/+916376228917"
             aria-label="Chat on WhatsApp with Nexify Digital expert developers"
-            className="px-6 py-2 bg-white text-[#345570] rounded-full hover:scale-105 shadow transition font-bold"
+            className="px-6 py-2 bg-white text-[#AC7C30] rounded-full hover:scale-105 shadow transition font-bold"
           >
             WHATSAPP
           </a>
         </div>
       </section>
 
-      <footer aria-label="Nexify Digital footer section" className="w-full bg-[#345570] text-white py-14 px-4 md:px-14 flex flex-col md:flex-row justify-between items-start text-sm border-t border-[#d5d7d2] gap-10">
+      <footer aria-label="Nexify Digital footer section" className="w-full bg-[#AC7C30] text-white py-14 px-4 md:px-14 flex flex-col md:flex-row justify-between items-start text-sm border-t border-[#d5d7d2] gap-10">
         
         {/* Company Info */}
         <div className="md:w-1/4">
@@ -85,7 +85,7 @@ const Footer: React.FC = () => {
       </footer>
 
       <hr className="text-white" />
-      <div className="font-bold text-xl py-8 text-center bg-[#345570] text-white px-2 border-t border-[#12130f]">
+      <div className="font-bold text-xl py-8 text-center bg-[#AC7C30] text-white px-2 border-t border-[#12130f]">
         © 2025 Sundar Group. All Rights Reserved.
       </div>
     </>
