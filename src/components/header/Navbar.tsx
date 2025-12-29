@@ -84,12 +84,14 @@ const Navbar: React.FC = () => {
 
 
         {/* Navigation - Desktop */}
-        <nav className="hidden md:flex gap-8 text-[12px] md:text-[18px]" aria-label="Primary Navigation">
+        <nav className="hidden md:flex gap-8 font text-[12px] md:text-[15px]" aria-label="Primary Navigation">
           <ul className="flex gap-7 text-black">
             <li><Link className="hover:border-b-2 border-black" to="/">Home</Link></li>
-            <li><Link className="hover:border-b-2 border-black" to="/about-us">About Us</Link></li>
-            <li><Link className="hover:border-b-2 border-black" to="/services">Services</Link></li>
-            <li><Link className="hover:border-b-2 border-black" to="/blogs">Blogs</Link></li>
+            <li><Link className="hover:border-b-2 border-black" to="/who-we-are">Who We Are</Link></li>
+            <li><Link className="hover:border-b-2 border-black" to="/ventures">Ventures</Link></li>
+            <li><Link className="hover:border-b-2 border-black" to="/what-we-build">What We Build</Link></li>
+            <li><Link className="hover:border-b-2 border-black" to="/impact">Impact</Link></li>
+            <li><Link className="hover:border-b-2 border-black" to="/blogs">Insights</Link></li>
             <li><Link className="hover:border-b-2 border-black" to="/contact-us">Contact Us</Link></li>
           </ul>
         </nav>

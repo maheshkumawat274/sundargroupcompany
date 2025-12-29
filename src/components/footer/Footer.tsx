@@ -56,9 +56,9 @@ const Footer: React.FC = () => {
         <div className="md:w-1/4">
           <h1 className="font-bold mb-3 text-2xl sm:text-3xl">Our Divisions</h1>
           <ul className="text-md space-y-2">
-            <li className="hover:underline"><Link aria-label="Website development services by Nexify Digital" to='/services/website_development'>Sundar Print</Link></li>
-            <li className="hover:underline"><Link aria-label="Mobile app development services by Nexify Digital" to='/services/app_development'>Sundar Developers</Link></li>
-            <li className="hover:underline"><Link  aria-label="Custom software development by Nexify Digital" to='/services/software_development'>Sundar Resort</Link></li>
+            <li className="hover:underline"><Link aria-label="Website development services by Nexify Digital" to='/branch/sundar-print'>Sundar Print</Link></li>
+            <li className="hover:underline"><Link aria-label="Mobile app development services by Nexify Digital" to='/branch/sundar-developer'>Sundar Developers</Link></li>
+            <li className="hover:underline"><Link  aria-label="Custom software development by Nexify Digital" to='/branch/sundar-resort'>Sundar Resort</Link></li>
           </ul>
         </div>
 

@@ -27,7 +27,7 @@ const TopSectionMain = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((current) => (current + 1) % slides.length);
-    }, 4000); // Change every 4 seconds
+    }, 2000); // Change every 4 seconds
 
     return () => clearInterval(interval);
   }, []); // Empty dependency array = runs once on mount
@@ -154,7 +154,7 @@ const TopSectionMain = () => {
         }
 
         .animate-slide {
-          animation: slideUp 4s ease-in-out infinite;
+          animation: slideUp 1s ease-in-out infinite;
         }
 
         /* Ensure smooth image transitions */

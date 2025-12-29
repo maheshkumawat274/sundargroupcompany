@@ -34,5 +34,5 @@ html, body {
 }
 
 .animate-slideUphero {
-  animation: slideUphero 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: slideUphero 1.5s cubic-bezier(0.4, 0, 0.2, 1);
 }

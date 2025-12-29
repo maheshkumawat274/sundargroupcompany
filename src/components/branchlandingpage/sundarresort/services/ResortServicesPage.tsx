@@ -3,11 +3,20 @@ import { servicesresort } from "./ResortServicesData";
 
 const ResortServicesPage = () => {
   return (
-    <section className="py-12 px-6 bg-[#f9fafb]">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-14">
-          Our Services
-        </h2>
+    <section className="py-12 px-4 md:px-16 bg-[#f9fafb]">
+      <div className="mx-auto">
+        <h2 className="text-4xl font-bold text-center mb-4">
+  Amenities & Facilities
+</h2>
+
+<p className="text-center text-gray-600 max-w-2xl mx-auto mb-14">
+  <span className="block font-medium text-gray-800 mb-1">
+    Everyday comforts, quietly taken care of.
+  </span>
+  Facilities at Sundar Resort are intentionally understated – focused on what
+  guests genuinely use and appreciate, maintained with consistency and care.
+</p>
+
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {servicesresort.map((service) => (

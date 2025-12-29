@@ -1,34 +1,14 @@
 import { useRef } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import BranchCard, { type Branch } from "./BranchCard";
+import { BranchCard } from "./BranchCard";
+import { getAllBranches } from "./branchdummydata/branchesdata";
 
-const branches: Branch[] = [
-  {
-    id: 1,
-    name: "Sundar Resort",
-    description: "Luxury stay surrounded by nature and mountains.",
-    heroImage: "/imgs/JSD09255.webp",
-    path: "/branch/sundar-resort",
-  },
-  {
-    id: 2,
-    name: "Sundar Print",
-    description: "Peaceful environment with premium facilities.",
-    heroImage: "/imgs/3JX7uE466ZoNjDth2Y5TFR.jpg",
-    path: "/branch/sundar-print",
-  },
-  {
-    id: 3,
-    name: "Sundar Developer",
-    description: "Peaceful environment with premium facilities.",
-    heroImage: "/imgs/1721200680663.png",
-    path: "/branch/sundar-developer",
-  },
-];
+
+
 
 const BranchSlider = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
-
+  const branches = getAllBranches();
   const scrollLeft = () => {
     scrollRef.current?.scrollBy({ left: -320, behavior: "smooth" });
   };
@@ -38,8 +18,8 @@ const BranchSlider = () => {
   };
 
   return (
-    <section className="py-6 md:py-14 bg-gray-50 px-4">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-6 md:py-14 bg-white px-4 md:px-16">
+      <div className="mx-auto">
 
         {/* Header */}
         <div className="flex items-start justify-between gap-4 mb-6">
@@ -79,15 +59,16 @@ const BranchSlider = () => {
           ref={scrollRef}
           className="flex gap-5 overflow-x-auto scroll-smooth no-scrollbar px-1"
         >
-          {branches.map((branch) => (
+          {branches.map((branch,index) => (
             <div
               key={branch.id}
-              className="min-w-[260px] sm:min-w-[300px] md:min-w-[340px]"
+              className="min-w-[270px] sm:min-w-[300px] md:min-w-[360px]"
             >
-              <BranchCard branch={branch} />
+              <BranchCard key={branch.id} branch={branch} index={index} />
             </div>
           ))}
         </div>
+          
 
       </div>
     </section>
