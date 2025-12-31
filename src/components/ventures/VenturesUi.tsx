@@ -34,8 +34,8 @@ export function VenturesUI() {
   return (
     <div className="pt-20">
       {/* Page Header */}
-      <section className="bg-gray-50 py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-gray-50 py-16 px-4 md:px-16">
+        <div className="mx-auto">
           <p className="text-sm font-medium text-gray-500 tracking-wider uppercase mb-3">
             Our Portfolio
           </p>
@@ -50,8 +50,8 @@ export function VenturesUI() {
       </section>
 
       {/* Ventures Grid */}
-      <section className="py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 px-4 md:px-16">
+        <div className="mx-auto ">
           <div className="space-y-16">
             {ventures.map((venture, index) => (
               <div
@@ -128,8 +128,8 @@ export function VenturesUI() {
       </section>
 
       {/* Unified Excellence Section */}
-      <section className="py-16 lg:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 bg-gray-50">
+        <div className="mx-auto px-4 md:px-16">
           <div className="text-center mb-12">
             <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
               Unified Excellence
