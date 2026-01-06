@@ -18,10 +18,18 @@ import ImpactPage from './pages/impact';
 import ContactPage from './pages/contact';
 import FloatingSocialIcons from './components/FloatingBtn';
 import FloatingWhatsappButton from './components/FloatingWPbtn';
+import SundarResortPage from './pages/branchlandingpages/sundarresort';
+import SundarPrintPage from './pages/branchlandingpages/sundarprint';
+import SundarDeveloperPage from './pages/branchlandingpages/sundardeveloper';
+import CategoryPagePrint from './pages/branchlandingpages/sundarprint/categoriespage';
+import { CartProvider } from './components/branchlandingpage/sundarprint/contextprint/ContextPrint';
+import ContactusPrintPage from './pages/branchlandingpages/sundarprint/ContactusPrintPage';
+import Aboutprintpage from './pages/branchlandingpages/sundarprint/aboutprintpage';
 
 const App: React.FC = () => {
   return (
     <div>
+      <CartProvider>
       <ScrollTop/>
       <Navbar />
       <Routes>
@@ -38,6 +46,14 @@ const App: React.FC = () => {
         <Route path="/our-strategy/:id" element={<StrategyDetail />} />
         {/* Branch routes */}
         <Route path="/branch/:slug" element={<BranchLandingPage />} />
+        <Route path='/branch/sundar-resort' element={<SundarResortPage/>}/>
+        <Route path='/branch/sundar-print' element={<SundarPrintPage/>}/>
+        <Route path="/branch/sundar-print/about-us" element={<Aboutprintpage />} />
+        <Route path="/branch/sundar-print/contact-us" element={<ContactusPrintPage />} />
+          {/* sundar print categories route */}
+          <Route path="/category/:slug" element={<CategoryPagePrint />} />
+          
+        <Route path='/branch/sundar-developer' element={<SundarDeveloperPage/>}/>
         {/* Resort Services routes */}
         <Route path="/branch/sundar-resort/services" element={<ResortServicesPage />} />
         <Route path="/branch/sundar-resort/services/:serviceSlug" element={<ResortServiceLandingPage />} />
@@ -46,6 +62,7 @@ const App: React.FC = () => {
       <Footer/>
       <FloatingSocialIcons/>
       <FloatingWhatsappButton/>
+      </CartProvider>
     </div>
   );
 };

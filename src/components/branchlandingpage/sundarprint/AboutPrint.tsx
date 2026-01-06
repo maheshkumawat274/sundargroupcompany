@@ -13,13 +13,14 @@ export const AboutPrint = () => {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="aspect-[4/5] rounded-2xl overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1000&auto=format&fit=crop"
-                alt="Our craftsmanship"
+                src="https://assets0.mirraw.com/images/9985955/BNNAK-1709_zoom.jpg?1645171399"
+                alt="About Sundar Print"
                 className="w-full h-full object-cover"
               />
             </div>
+
             <div className="absolute -bottom-10 -right-10 bg-[#AC7C30] text-white p-8 rounded-lg hidden lg:block">
               <div className="text-4xl font-bold mb-1">25+</div>
               <div className="text-sm uppercase tracking-wider">Years of Experience</div>
