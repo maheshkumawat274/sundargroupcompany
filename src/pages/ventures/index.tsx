@@ -1,4 +1,6 @@
 
+import CTAventures from '../../components/ventures/CTAventures'
+import UnifiedExecellence from '../../components/ventures/UnifiedExecellence'
 import { VenturesUI } from '../../components/ventures/VenturesUi'
 
 const VenturesPage = () => {
@@ -6,6 +8,8 @@ const VenturesPage = () => {
     <>
      <div>
       <VenturesUI/>
+      <UnifiedExecellence/>
+      <CTAventures/>
      </div>
     </>
   )

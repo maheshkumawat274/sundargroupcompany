@@ -1,6 +1,6 @@
 
 import HeaderPrint from "../../../components/branchlandingpage/sundarprint/HeaderPrint"
-import { ContactPrint } from "../../../components/branchlandingpage/sundarprint/ContactPrint"
+import { ContactPrint } from "../../../components/branchlandingpage/sundarprint/contactus/ContactPrint"
 
 
 const ContactusPrintPage = () => {

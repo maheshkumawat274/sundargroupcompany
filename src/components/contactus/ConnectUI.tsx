@@ -18,17 +18,29 @@ export function ConnectUI() {
   };
 
   return (
-    <div className="min-h-screen bg-white pt-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center mb-16">
-          <span className="text-sm font-medium text-emerald-600 tracking-wider uppercase">Get in Touch</span>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-6">Connect With Us</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+    <div className=" bg-white ">
+        <section
+        className="relative bg-cover bg-center py-24 px-4 md:px-16"
+        style={{
+          backgroundImage: "url('/imgs/Premium-villa-4.webp')",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 text-center max-w-4xl mx-auto text-white">
+          <span className="text-sm font-medium tracking-wider uppercase text-emerald-300">
+            Get in Touch
+          </span>
+          <h1 className="text-4xl md:text-5xl font-bold mt-3 mb-6">
+            Connect With Us
+          </h1>
+          <p className="text-lg md:text-xl text-gray-200">
             Whether you have a question or want to explore partnership opportunities, we're here to help.
           </p>
         </div>
+      </section>
 
-        <div className="grid lg:grid-cols-3 gap-12">
+        <div className='px-4 md:px-16 py-16'>
+          <div className="grid lg:grid-cols-3 gap-12">
           {/* Form */}
           <div className="lg:col-span-2">
             <div className="bg-gray-50 rounded-2xl p-8">
@@ -156,7 +168,7 @@ export function ConnectUI() {
             Back to Home
           </Link>
         </div>
-      </div>
+        </div>
     </div>
   );
 }

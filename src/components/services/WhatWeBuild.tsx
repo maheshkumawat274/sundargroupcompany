@@ -23,17 +23,29 @@ const services = [
 
 export function DemoWhatWeBuildPage() {
   return (
-    <div className="min-h-screen bg-white px-4 md:px-16 py-6">
-      <div className="mx-auto ">
-        <div className="text-center mb-16">
-          <span className="text-sm font-medium text-emerald-600 tracking-wider uppercase">Our Capabilities</span>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-6">What We Build</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+    <div className="min-h-screen bg-white ">
+        <section
+        className="relative bg-cover bg-center py-24 px-4 md:px-16"
+        style={{
+          backgroundImage: "url('/imgs/Premium-villa-4.webp')",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 text-center max-w-4xl mx-auto text-white">
+          <span className="text-sm font-medium tracking-wider uppercase text-emerald-300">
+            Our Capabilities
+          </span>
+          <h1 className="text-4xl md:text-5xl font-bold mt-3 mb-6">
+            What We Build
+          </h1>
+          <p className="text-lg md:text-xl text-gray-200">
             Comprehensive solutions across three business verticals, designed to meet evolving client needs.
           </p>
         </div>
-
-        <div className="space-y-16">
+      </section>
+      <div className='py-10 px-4 md:px-16'>
+        
+        <div className="space-y-16  ">
           {services.map((service, i) => (
             <div key={i} className="border-b border-gray-100 pb-16 last:border-b-0">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">

@@ -25,10 +25,17 @@ import CategoryPagePrint from './pages/branchlandingpages/sundarprint/categories
 import { CartProvider } from './components/branchlandingpage/sundarprint/contextprint/ContextPrint';
 import ContactusPrintPage from './pages/branchlandingpages/sundarprint/ContactusPrintPage';
 import Aboutprintpage from './pages/branchlandingpages/sundarprint/aboutprintpage';
+import LeadershipSection from './components/home/leadership/LeaderShipSection';
+import LeaderShipDetail from './components/home/leadership/LeadershipDetail';
+import AccountLayout from './components/branchlandingpage/sundarprint/account/AccountLayout';
+import UserDashboard from './components/branchlandingpage/sundarprint/account/UserDashboard';
+import UserSettings from './components/branchlandingpage/sundarprint/account/UserSettings';
+import { AuthProvider } from './components/branchlandingpage/sundarprint/context/AuthContext';
 
 const App: React.FC = () => {
   return (
     <div>
+       <AuthProvider>
       <CartProvider>
       <ScrollTop/>
       <Navbar />
@@ -44,6 +51,9 @@ const App: React.FC = () => {
         {/* Strategy Section routes */}
         <Route path="/our-strategy" element={<StrategySection />} />
         <Route path="/our-strategy/:id" element={<StrategyDetail />} />
+        {/* leadership section routes */}
+        <Route path="/leadership" element={<LeadershipSection />} />
+        <Route path="/leadership/:slug" element={<LeaderShipDetail />} />
         {/* Branch routes */}
         <Route path="/branch/:slug" element={<BranchLandingPage />} />
         <Route path='/branch/sundar-resort' element={<SundarResortPage/>}/>
@@ -57,12 +67,17 @@ const App: React.FC = () => {
         {/* Resort Services routes */}
         <Route path="/branch/sundar-resort/services" element={<ResortServicesPage />} />
         <Route path="/branch/sundar-resort/services/:serviceSlug" element={<ResortServiceLandingPage />} />
-        
+        {/* user account */}
+        <Route path="/account" element={<AccountLayout />}/>
+        <Route path="/dashboard" element={<UserDashboard />} />
+        <Route path="/settings" element={<UserSettings />} />
       </Routes>
       <Footer/>
       <FloatingSocialIcons/>
       <FloatingWhatsappButton/>
+      
       </CartProvider>
+      </AuthProvider>
     </div>
   );
 };

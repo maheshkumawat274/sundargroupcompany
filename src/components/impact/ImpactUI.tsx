@@ -2,26 +2,31 @@ import { Link } from 'react-router-dom';
 
 export function ImpactUI() {
   return (
-    <div className="pt-20">
+    <div className="">
       {/* Page Header */}
-      <section className="bg-gray-50 py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-medium text-gray-500 tracking-wider uppercase mb-3">
+      <section
+        className="relative bg-cover bg-center py-24 px-4 md:px-16"
+        style={{
+          backgroundImage: "url('/imgs/Premium-villa-4.webp')",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 text-center max-w-4xl mx-auto text-white">
+          <span className="text-sm font-medium tracking-wider uppercase text-emerald-300">
             Our Impact
-          </p>
-          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          </span>
+          <h1 className="text-4xl md:text-5xl font-bold mt-3 mb-6">
             Culture & Legacy
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl leading-relaxed">
-            Building a sustainable future through responsible business practices 
-            and meaningful contributions to our communities.
+          <p className="text-lg md:text-xl text-gray-200">
+            Building a sustainable future through responsible business practices and meaningful contributions to our communities.
           </p>
         </div>
       </section>
 
       {/* Culture Section */}
       <section className="py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="order-2 lg:order-1">
               <div className="bg-gray-100 rounded-lg aspect-[4/3] flex items-center justify-center">

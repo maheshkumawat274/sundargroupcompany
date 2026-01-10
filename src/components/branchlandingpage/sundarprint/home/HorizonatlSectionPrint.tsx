@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
-import type { Product } from './types';
-import ProductCardPrint from './ProductCardPrint';
+import type { Product } from '../types';
+import ProductCardPrint from '../ProductCardPrint';
 
 interface HorizontalScrollSectionProps {
   title: string;

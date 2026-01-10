@@ -1,12 +1,12 @@
 
-import { AboutPrint } from "../../../components/branchlandingpage/sundarprint/AboutPrint"
-import CategoriesPrint from "../../../components/branchlandingpage/sundarprint/CategoriesPrint"
+import CategoriesPrint from "../../../components/branchlandingpage/sundarprint/home/CategoriesPrint"
 import { brassoSarees, chiffonSarees, fancyPrintSarees, georgetteSarees, weightlessSarees } from "../../../components/branchlandingpage/sundarprint/dataproductprint/printproductsdata"
 import HeaderPrint from "../../../components/branchlandingpage/sundarprint/HeaderPrint"
-import HeroPrint from "../../../components/branchlandingpage/sundarprint/HeroPrint"
-import HorizontalScrollSectionPrint from "../../../components/branchlandingpage/sundarprint/HorizonatlSectionPrint"
-import JustLaunchedPrint from "../../../components/branchlandingpage/sundarprint/JustLaunchedPrint"
-import SwarovskiGridSection from "../../../components/branchlandingpage/sundarprint/SwarovskiGridSection"
+import HeroPrint from "../../../components/branchlandingpage/sundarprint/home/HeroPrint"
+
+import JustLaunchedPrint from "../../../components/branchlandingpage/sundarprint/home/JustLaunchedPrint"
+import SwarovskiGridSection from "../../../components/branchlandingpage/sundarprint/home/SwarovskiGridSection"
+import HorizontalScrollSectionPrint from "../../../components/branchlandingpage/sundarprint/home/HorizonatlSectionPrint"
 
 
 const SundarPrintPage = () => {
@@ -45,8 +45,7 @@ const SundarPrintPage = () => {
           {/* 40x40 Chiffon Saree Section */}
           <HorizontalScrollSectionPrint title="40×40 Chiffon Saree" products={chiffonSarees} />
           
-          {/* About Section */}
-          <AboutPrint/>
+          
         </main>
       </div>
     </>

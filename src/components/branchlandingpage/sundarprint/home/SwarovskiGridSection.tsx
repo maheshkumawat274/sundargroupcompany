@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { swarovskiSarees } from './dataproductprint/printproductsdata';
-import ProductCardPrint from './ProductCardPrint';
+import { swarovskiSarees } from '../dataproductprint/printproductsdata';
+import ProductCardPrint from '../ProductCardPrint';
 const SwarovskiGridSection: React.FC = () => {
   const [showAll, setShowAll] = useState(false);
   const displayedProducts = showAll ? swarovskiSarees : swarovskiSarees.slice(0, 4);

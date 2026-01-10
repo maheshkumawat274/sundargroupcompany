@@ -12,7 +12,7 @@ const slides: Slide[] = [
   },
   {
     title: "Sundar Print",
-    image: "/imgs/3JX7uE466ZoNjDth2Y5TFR.jpg",
+    image: "https://tiimg.tistatic.com/fp/1/008/297/ladies-machine-embroidery-silk-saree-for-party-wear-069.jpg",
   },
   {
     title: "Sundar Developer",

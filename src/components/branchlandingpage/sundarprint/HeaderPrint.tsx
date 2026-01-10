@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useCart } from './contextprint/useCart';
 import CartModalPrint from './CardModelPrint';
@@ -9,16 +9,28 @@ const HeaderPrint: React.FC = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+
   const location = useLocation();
+  const profileRef = useRef<HTMLDivElement>(null);
 
   const isHome = location.pathname === '/';
+
+  /* CLOSE PROFILE ON OUTSIDE CLICK */
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (profileRef.current && !profileRef.current.contains(e.target as Node)) {
+        setIsProfileOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const scrollToSection = (id: string) => {
     if (isHome) {
       const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      if (element) element.scrollIntoView({ behavior: 'smooth' });
     }
     setIsMobileMenuOpen(false);
   };
@@ -28,44 +40,32 @@ const HeaderPrint: React.FC = () => {
       <header className="bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
-            {/* Logo */}
-            <div className="flex-shrink-0">
-              <Link to="/" className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight block">
-                <span className="text-rose-600">Sundar</span> Print
-              </Link>
-            </div>
 
-            {/* Desktop Navigation */}
+            {/* LOGO */}
+            <Link to="/" className="text-2xl md:text-3xl font-bold text-gray-900">
+              <span className="text-rose-600">Sundar</span> Print
+            </Link>
+
+            {/* DESKTOP NAV */}
             <nav className="hidden md:flex items-center space-x-8">
               {isHome ? (
                 <>
-                  <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }} className="text-gray-700 hover:text-rose-600 font-medium transition-colors cursor-pointer">
-                    Home
-                  </a>
-                  <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }} className="text-gray-700 hover:text-rose-600 font-medium transition-colors cursor-pointer">
-                    About Us
-                  </a>
-                  <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="text-gray-700 hover:text-rose-600 font-medium transition-colors cursor-pointer">
-                    Contact Us
-                  </a>
+                  <a onClick={() => scrollToSection('home')} className="nav-link">Home</a>
+                  <a onClick={() => scrollToSection('about')} className="nav-link">About Us</a>
+                  <a onClick={() => scrollToSection('contact')} className="nav-link">Contact Us</a>
                 </>
               ) : (
                 <>
-                  <Link to="/branch/sundar-print" className="text-gray-700 hover:text-rose-600 font-medium transition-colors">
-                    Home
-                  </Link>
-                  <Link to="/branch/sundar-print/about-us" className="text-gray-700 hover:text-rose-600 font-medium transition-colors">
-                    About Us
-                  </Link>
-                  <Link to="/branch/sundar-print/contact-us" className="text-gray-700 hover:text-rose-600 font-medium transition-colors">
-                    Contact Us
-                  </Link>
+                  <Link to="/branch/sundar-print" className="nav-link">Home</Link>
+                  <Link to="/branch/sundar-print/about-us" className="nav-link">About Us</Link>
+                  <Link to="/branch/sundar-print/contact-us" className="nav-link">Contact Us</Link>
                 </>
               )}
             </nav>
 
-            {/* Right Icons */}
-            <div className="flex items-center space-x-4">
+            {/* RIGHT ICONS */}
+            <div className="flex items-center gap-4 relative">
+
               {/* Wishlist */}
               <button
                 onClick={() => setIsWishlistOpen(true)}
@@ -96,52 +96,54 @@ const HeaderPrint: React.FC = () => {
                 )}
               </button>
 
-              {/* Mobile Menu Button */}
+              {/* PROFILE */}
+              <div className="relative" ref={profileRef}>
+                <button
+                  onClick={() => setIsProfileOpen(!isProfileOpen)}
+                  className="p-2"
+                >
+                  👤
+                </button>
+
+                {isProfileOpen && (
+                  <div className="absolute right-0 top-11 w-48 bg-white border rounded-lg shadow-lg z-50">
+                    <Link
+                      to="/account/dashboard"
+                      onClick={() => setIsProfileOpen(false)}
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      Dashboard
+                    </Link>
+                    <Link
+                      to="/account/settings"
+                      onClick={() => setIsProfileOpen(false)}
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      Settings
+                    </Link>
+                    <button className="w-full text-left px-4 py-2 hover:bg-gray-100">
+                      Logout
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              {/* MOBILE MENU */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden p-2 text-gray-700"
+                className="md:hidden p-2"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  {isMobileMenuOpen ? (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  ) : (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  )}
-                </svg>
+                ☰
               </button>
             </div>
           </div>
 
-          {/* Mobile Navigation */}
+          {/* MOBILE NAV */}
           {isMobileMenuOpen && (
-            <nav className="md:hidden py-4 border-t border-gray-100">
-              <div className="flex flex-col space-y-3">
-                {isHome ? (
-                  <>
-                    <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }} className="text-gray-700 hover:text-rose-600 font-medium py-2">
-                      Home
-                    </a>
-                    <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }} className="text-gray-700 hover:text-rose-600 font-medium py-2">
-                      About Us
-                    </a>
-                    <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="text-gray-700 hover:text-rose-600 font-medium py-2">
-                      Contact Us
-                    </a>
-                  </>
-                ) : (
-                  <>
-                    <Link to="/branch/sundar-print" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-700 hover:text-rose-600 font-medium py-2">
-                      Home
-                    </Link>
-                    <Link to="/branch/sundar-print/about-us" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-700 hover:text-rose-600 font-medium py-2">
-                      About Us
-                    </Link>
-                    <Link to="/branch/sundar-print/contact-us" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-700 hover:text-rose-600 font-medium py-2">
-                      Contact Us
-                    </Link>
-                  </>
-                )}
-              </div>
+            <nav className="md:hidden py-4 border-t">
+              <Link to="/" className="block py-2">Home</Link>
+              <Link to="/about" className="block py-2">About</Link>
+              <Link to="/contact" className="block py-2">Contact</Link>
             </nav>
           )}
         </div>

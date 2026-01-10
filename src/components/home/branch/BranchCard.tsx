@@ -39,7 +39,7 @@ const branchData: Branch[] = [
     description:
       "Specializing in high-quality saree and textile printing with precision craftsmanship, vibrant colors, and modern techniques.",
     heroImage:
-      "https://vaasudigiprints.com/wp-content/uploads/2025/10/Untitled-design-2025-10-11T155408.482.jpg",
+      "https://tiimg.tistatic.com/fp/1/008/297/ladies-machine-embroidery-silk-saree-for-party-wear-069.jpg",
     path: "/branch/sundar-print",
   },
   {
