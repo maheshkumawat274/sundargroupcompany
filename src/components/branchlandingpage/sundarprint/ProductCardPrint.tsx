@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import type { Product } from "./types";
 import { useCart } from "./contextprint/useCart";
 import QuickViewModal from "./QuickViewModal";
+import { Link } from "react-router-dom";
 
 interface ProductCardProps {
   product: Product;
@@ -115,15 +116,18 @@ const ProductCardPrint: React.FC<ProductCardProps> = ({ product }) => {
         {/* PRICE – ONLY AFTER LOGIN */}
         {!isLoggedIn && (
           <div className="mt-4">
-            <button
+            <button className="w-full text-sm font-medium py-2.5 rounded-lg border border-rose-600 text-rose-600 hover:bg-rose-600 hover:text-white transition">
+              <Link
+              to="/branch/sundar-print/wholesaler/register"
               onClick={() => {
                 // TODO: later connect real auth route
                 // navigate("/login");
                 console.log("Redirect to Login / Register");
               }}
-              className="w-full text-sm font-medium py-2.5 rounded-lg border border-rose-600 text-rose-600 hover:bg-rose-600 hover:text-white transition"
+              
             >
               Login | Register to see wholesale price
+            </Link>
             </button>
           </div>
         )}

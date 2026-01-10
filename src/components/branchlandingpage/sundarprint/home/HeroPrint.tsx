@@ -8,7 +8,7 @@ const heroSlides = [
     description:
       "Discover the finest collection of printed sarees crafted with precision and passion. Each piece reflects elegance, tradition, and modern design.",
     image:
-      "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=1920&h=1080&fit=crop",
+      "https://tiimg.tistatic.com/fp/1/008/297/ladies-machine-embroidery-silk-saree-for-party-wear-069.jpg",
   },
   {
     id: 2,

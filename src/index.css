@@ -36,3 +36,7 @@ html, body {
 .animate-slideUphero {
   animation: slideUphero 1.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.input {
+  @apply w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-rose-400;
+}

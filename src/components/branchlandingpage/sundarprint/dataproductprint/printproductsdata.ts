@@ -6,9 +6,7 @@ export const categories: (Category & { slug: string })[]= [
   { id: '1', name: 'Brasso Saree', slug: 'brasso-saree', image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=400&h=500&fit=crop' },
   { id: '2', name: 'Georgette Jaquard', slug: 'georgette-jaquard', image: 'https://image.suratwholesaleshop.com/data/2024y/March/48199/Red-Georgette-Party%20Wear-Jacquard%20Weaving-Saree-43534.jpg' ,},
   { id: '3', name: 'Weightless Saree', slug: 'weightless-saree', image: 'https://desilooklifestyle.com/cdn/shop/files/WhatsAppImage2023-05-10at5.39.57PM.jpg?v=1715948521' },
-  { id: '4', name: 'Fancy Print', slug: 'fancy-print', image: 'https://aesha.in/images/items/item1653378547618.jpg' },
-  { id: '5', name: 'Swarovski Work', slug: 'swarovski-work', image: 'https://d3nsby4zkkv8rx.cloudfront.net/image/cache/data/swarovski-work-designer-traditional-saree-124415-1200x1650.jpg' },
-  { id: '6', name: 'Chiffon Saree', slug: 'chiffon-saree', image: 'https://www.lavanyathelabel.com/cdn/shop/files/lbl101ks882_1.jpg?v=1755064394' },
+  { id: '4', name: 'Fancy Print', slug: 'fancy-print', image: 'https://aesha.in/images/items/item1653378547618.jpg' }
 ];
 
 export const brassoSarees: Product[] = [

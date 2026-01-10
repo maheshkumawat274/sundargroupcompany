@@ -34,11 +34,11 @@ const SundarResortPage: React.FC = () => {
 
   const ahmedabadMapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117506.39050239617!2d72.50237409205322!3d23.02018176335198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fccd1170779199b!2sAhmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin";
 
-  const handleWhatsAppRedirect = () => {
-    const phoneNumber = "919876543210";
-    const message = encodeURIComponent("Namaste! I want to book a stay at Sundar Resort Ahmedabad. Please help me with the availability.");
-    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
-  };
+  // const handleWhatsAppRedirect = () => {
+  //   const phoneNumber = "919876543210";
+  //   const message = encodeURIComponent("Namaste! I want to book a stay at Sundar Resort Ahmedabad. Please help me with the availability.");
+  //   window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+  // };
 
   const handleReviewSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -99,7 +99,7 @@ const SundarResortPage: React.FC = () => {
       
       
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-40 px-6 py-4 flex justify-between items-center transition-all glass-morphism shadow-lg">
+      {/* <nav className="fixed top-0 w-full z-40 px-6 py-4 flex justify-between items-center transition-all glass-morphism shadow-lg">
         <div className="text-white text-2xl font-serif font-bold tracking-widest flex flex-col leading-none cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
           <span className="text-[#ecd399] text-xs font-sans tracking-[0.3em] uppercase mb-1">Welcome to</span>
           <span>SUNDAR <span className="text-[#c5a059]">RESORT</span></span>
@@ -117,7 +117,7 @@ const SundarResortPage: React.FC = () => {
             Book Now
           </button>
         </div>
-      </nav>
+      </nav> */}
 
       {/* Hero Section */}
       <HeroSlider />

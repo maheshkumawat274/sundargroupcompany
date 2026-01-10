@@ -31,6 +31,9 @@ import AccountLayout from './components/branchlandingpage/sundarprint/account/Ac
 import UserDashboard from './components/branchlandingpage/sundarprint/account/UserDashboard';
 import UserSettings from './components/branchlandingpage/sundarprint/account/UserSettings';
 import { AuthProvider } from './components/branchlandingpage/sundarprint/context/AuthContext';
+import WholesalerRegister from './components/branchlandingpage/sundarprint/account/WholeRegister';
+import WholesalerLogin from './components/branchlandingpage/sundarprint/account/Wholesallerlogin';
+import ForgotPassword from './components/branchlandingpage/sundarprint/account/ForgetPassword';
 
 const App: React.FC = () => {
   return (
@@ -71,6 +74,10 @@ const App: React.FC = () => {
         <Route path="/account" element={<AccountLayout />}/>
         <Route path="/dashboard" element={<UserDashboard />} />
         <Route path="/settings" element={<UserSettings />} />
+        <Route path="/branch/sundar-print/wholesaler/register" element={<WholesalerRegister />} />
+        <Route path="/branch/sundar-print/wholesaler/login" element={<WholesalerLogin />} />
+        <Route path="/branch/sundar-print/wholesaler/forgot-password" element={<ForgotPassword />} />
+
       </Routes>
       <Footer/>
       <FloatingSocialIcons/>
