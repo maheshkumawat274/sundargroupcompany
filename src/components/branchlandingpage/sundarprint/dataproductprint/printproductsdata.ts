@@ -3,10 +3,10 @@ import type { Category, Product } from "../types";
 
 
 export const categories: (Category & { slug: string })[]= [
-  { id: '1', name: 'Brasso Saree', slug: 'brasso-saree', image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=400&h=500&fit=crop' },
-  { id: '2', name: 'Georgette Jaquard', slug: 'georgette-jaquard', image: 'https://image.suratwholesaleshop.com/data/2024y/March/48199/Red-Georgette-Party%20Wear-Jacquard%20Weaving-Saree-43534.jpg' ,},
-  { id: '3', name: 'Weightless Saree', slug: 'weightless-saree', image: 'https://desilooklifestyle.com/cdn/shop/files/WhatsAppImage2023-05-10at5.39.57PM.jpg?v=1715948521' },
-  { id: '4', name: 'Fancy Print', slug: 'fancy-print', image: 'https://aesha.in/images/items/item1653378547618.jpg' }
+  { id: '1', name: 'Casual wear', slug: 'casual-wear', image: 'https://peachmode.com/cdn/shop/products/chiku-casual-wear-printed-georgette-saree-peachmode-1.jpg?v=1669018153&width=2000' },
+  { id: '2', name: 'Daily wear', slug: 'daily-wear', image: 'https://image.suratwholesaleshop.com/data/2024y/March/48199/Red-Georgette-Party%20Wear-Jacquard%20Weaving-Saree-43534.jpg' ,},
+  { id: '3', name: 'Party wear', slug: 'party-wear', image: 'https://desilooklifestyle.com/cdn/shop/files/WhatsAppImage2023-05-10at5.39.57PM.jpg?v=1715948521' },
+  { id: '4', name: 'Bandhani wear', slug: 'bandhani-wear', image: 'https://aesha.in/images/items/item1653378547618.jpg' }
 ];
 
 export const brassoSarees: Product[] = [

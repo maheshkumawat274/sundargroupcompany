@@ -1,9 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Instagram, Facebook, Youtube } from "lucide-react";
 
 /* =====================
-   TYPE (Future API Ready)
+   TYPE
 ===================== */
 interface Branch {
   id: number;
@@ -12,12 +11,11 @@ interface Branch {
   tagline: string;
   description: string;
   heroImage: string;
-  path: string; // 🔑 dynamic route
+  path: string;
 }
 
 /* =====================
-   DUMMY DATA (ARRAY)
-   🔮 Future me API se aayega
+   DATA
 ===================== */
 const branchData: Branch[] = [
   {
@@ -28,7 +26,7 @@ const branchData: Branch[] = [
     description:
       "A premium resort experience surrounded by nature, offering luxury stays, events, and unforgettable hospitality.",
     heroImage:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/647022199.jpg?k=2f17f47f10cd017d2a0b77172ff1855bb8ffec14d67e280dbb563c96d52fe9d2&o=",
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=800",
     path: "/branch/sundar-resort",
   },
   {
@@ -50,12 +48,10 @@ const branchData: Branch[] = [
     description:
       "A trusted name in construction and real estate development, delivering residential and commercial projects with quality and integrity.",
     heroImage:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1503387762-592deb58ef4e",
     path: "/branch/sundar-developer",
   },
 ];
-
-
 
 /* =====================
    COMPONENT
@@ -68,8 +64,13 @@ const BranchCard: React.FC = () => {
           key={branch.id}
           className="min-w-[270px] sm:min-w-[300px] md:min-w-[360px]"
         >
-          <Link to={branch.path}>
-            <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 group">
+          {/* CARD CLICK → NEW TAB */}
+          <a
+            href={branch.path}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 group cursor-pointer">
 
               {/* IMAGE */}
               <div className="relative h-64 overflow-hidden">
@@ -105,18 +106,49 @@ const BranchCard: React.FC = () => {
 
                 <hr />
 
+                {/* SOCIAL ICONS */}
                 <div className="flex items-center justify-between pt-2">
                   <span className="text-sm text-gray-500">Follow us on</span>
-                  <div className="flex gap-4 text-gray-500">
-                    <Instagram size={18} className="hover:text-emerald-600 transition" />
-                    <Facebook size={18} className="hover:text-emerald-600 transition" />
-                    <Youtube size={18} className="hover:text-emerald-600 transition" />
+
+                  <div className="flex gap-4">
+                    <a
+                      href="https://instagram.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Instagram
+                        size={18}
+                        className="text-pink-600 hover:scale-110 transition"
+                      />
+                    </a>
+
+                    <a
+                      href="https://facebook.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Facebook
+                        size={18}
+                        className="text-blue-600 hover:scale-110 transition"
+                      />
+                    </a>
+
+                    <a
+                      href="https://youtube.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Youtube
+                        size={18}
+                        className="text-red-600 hover:scale-110 transition"
+                      />
+                    </a>
                   </div>
                 </div>
               </div>
 
             </div>
-          </Link>
+          </a>
         </div>
       ))}
     </div>

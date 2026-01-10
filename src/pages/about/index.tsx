@@ -6,11 +6,14 @@ import OurStory from "../../components/aboutus/OurStory"
 import TeamSection from "../../components/aboutus/TeamSection"
 import ValuesSection from "../../components/aboutus/ValueSection"
 import VisionMission from "../../components/aboutus/VisionMission"
+import Navbar from "../../components/header/Navbar"
 
 const AboutPage = () => {
   return (
     <>
      <div>
+      
+      <Navbar />
       <AboutHero/>
       <OurStory/>
       <CompanyOverview/>

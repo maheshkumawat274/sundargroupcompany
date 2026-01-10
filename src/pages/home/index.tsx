@@ -9,9 +9,12 @@ import InSumSection from '../../components/home/InSumSection';
 import FaqSection from '../../components/home/FAQ';
 import ContactHome from '../../components/home/ContactHome';
 import LeadershipSection from '../../components/home/leadership/LeaderShipSection';
+import Navbar from '../../components/header/Navbar';
 const HomePage: React.FC = () => {
   return (
     <>
+    
+      <Navbar />
       <TopSectionMain/>
       <BranchSlider/>
       <HomeAboutSection/>

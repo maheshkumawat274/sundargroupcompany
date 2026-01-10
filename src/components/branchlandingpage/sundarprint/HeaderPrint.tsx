@@ -37,14 +37,20 @@ const HeaderPrint: React.FC = () => {
 
   return (
     <>
-      <header className="bg-white border-b border-gray-100">
+      <header className="bg-white py-1 fixed top-0 z-50 w-full border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
 
             {/* LOGO */}
-            <Link to="/" className="text-2xl md:text-3xl font-bold text-gray-900">
-              <span className="text-rose-600">Sundar</span> Print
-            </Link>
+            <div className="h-full w-24 overflow-hidden flex items-center">
+                     <Link to="/" className="block h-full w-full">
+                       <img
+                         src="/imgs/logo.png"
+                         alt="Podcast Logo"
+                         className="h-full w-full object-cover scale-125"
+                       />
+                     </Link>
+                   </div>
 
             {/* DESKTOP NAV */}
             <nav className="hidden md:flex items-center space-x-8">

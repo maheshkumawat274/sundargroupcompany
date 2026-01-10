@@ -47,7 +47,7 @@ const QuickViewModal = ({
     >
       {/* MODAL - More compact */}
       <div 
-        className="bg-white rounded-2xl w-full max-w-3xl h-[85vh] md:h-[75vh] relative overflow-hidden shadow-2xl"
+        className="bg-white rounded-2xl w-full max-w-4xl h-[85vh] md:h-[80vh] relative overflow-hidden shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
 

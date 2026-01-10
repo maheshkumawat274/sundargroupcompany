@@ -1,6 +1,5 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/header/Navbar';
 import AboutPage from './pages/about';
 import HomePage from './pages/home';
 import BlogMainPage from './pages/blog';
@@ -41,7 +40,6 @@ const App: React.FC = () => {
        <AuthProvider>
       <CartProvider>
       <ScrollTop/>
-      <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/who-we-are" element={<AboutPage />} />

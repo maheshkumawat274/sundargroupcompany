@@ -8,7 +8,7 @@ const heroSlides = [
     description:
       "Discover the finest collection of printed sarees crafted with precision and passion. Each piece reflects elegance, tradition, and modern design.",
     image:
-      "https://tiimg.tistatic.com/fp/1/008/297/ladies-machine-embroidery-silk-saree-for-party-wear-069.jpg",
+      "https://peachmode.com/cdn/shop/products/chiku-casual-wear-printed-georgette-saree-peachmode-1.jpg?v=1669018153&width=2000",
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const heroSlides = [
     description:
       "Experience premium quality fabrics with exquisite prints that make every occasion special and memorable.",
     image:
-      "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=1920&h=1080&fit=crop",
+      "https://myblacktree.com/cdn/shop/files/multicolor-casual-wear-printed-silk-saree-peachmode-1_c2839cbc-943c-4834-8a47-77c20987d5d8.jpg?v=1743377332&width=1946",
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ const heroSlides = [
     description:
       "A perfect blend of tradition and contemporary fashion designed for modern Indian women.",
     image:
-      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&h=1080&fit=crop",
+      "https://peachmode.com/cdn/shop/products/unique-green-and-blue-casual-wear-printed-art-silk-saree-peachmode-1.jpg?v=1669038797&width=2000",
   },
 ];
 
@@ -55,7 +55,7 @@ const HeroPrint: React.FC = () => {
           <img
             src={slide.image}
             alt={slide.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-top"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
         </div>

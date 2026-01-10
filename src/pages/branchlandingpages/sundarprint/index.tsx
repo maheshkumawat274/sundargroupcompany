@@ -14,7 +14,7 @@ const SundarPrintPage = () => {
     <>
       <div className="min-h-screen bg-white">
         <HeaderPrint />
-        <main>
+        <main className="mt-16 md:mt-20">
           <HeroPrint />
           <CategoriesPrint />
           
