@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { strategyData } from "./strategyData";
+import Navbar from "../../header/Navbar";
 
 const StrategyDetail = () => {
   
@@ -12,7 +13,9 @@ const StrategyDetail = () => {
   }
 
   return (
-    <section className="py-20 bg-white">
+    <>
+     <Navbar/>
+     <section className="py-20 bg-white">
       <div className="max-w-5xl mx-auto px-4">
 
         {/* Hero Image */}
@@ -34,6 +37,7 @@ const StrategyDetail = () => {
 
       </div>
     </section>
+    </>
   );
 };
 

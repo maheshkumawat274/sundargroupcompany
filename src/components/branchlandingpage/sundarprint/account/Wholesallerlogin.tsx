@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import HeaderPrint from "../HeaderPrint";
 
 const WholesalerLogin: React.FC = () => {
   const [form, setForm] = useState({
@@ -18,6 +19,8 @@ const WholesalerLogin: React.FC = () => {
   };
 
   return (
+    <>
+    <HeaderPrint/>
     <section className="bg-rose-50 min-h-screen flex items-center justify-center px-4">
       <form
         onSubmit={handleSubmit}
@@ -68,10 +71,11 @@ const WholesalerLogin: React.FC = () => {
           type="submit"
           className="w-full bg-gray-800 text-white py-3 rounded-lg font-semibold hover:bg-black"
         >
-          LOGIN
+          <Link to="/user">Login</Link>
         </button>
       </form>
     </section>
+    </>
   );
 };
 

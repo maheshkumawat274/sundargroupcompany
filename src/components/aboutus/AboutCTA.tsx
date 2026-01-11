@@ -22,7 +22,7 @@ const AboutCTA = () => {
                 Our Ventures
               </Link>
               <Link
-                to="/connect"
+                to="/contact-us"
                 className="px-6 py-3 border border-gray-600 text-white text-sm font-medium hover:bg-gray-800 transition-colors duration-150"
               >
                 Contact Us

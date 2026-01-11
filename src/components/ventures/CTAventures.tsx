@@ -21,7 +21,7 @@ const CTAventures = () => {
               </div>
               <div className="flex flex-wrap lg:justify-end gap-4">
                 <Link
-                  to="/connect"
+                  to="/contact-us"
                   className="px-6 py-3 bg-white text-gray-900 text-sm font-medium hover:bg-gray-100 transition-colors duration-150"
                 >
                   Business Enquiry

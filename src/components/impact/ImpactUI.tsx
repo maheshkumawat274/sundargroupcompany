@@ -25,19 +25,12 @@ export function ImpactUI() {
       </section>
 
       {/* Culture Section */}
-      <section className="py-16 lg:py-24">
+      <section className="py-10 lg:py-20">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="order-2 lg:order-1">
               <div className="bg-gray-100 rounded-lg aspect-[4/3] flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </div>
-                  <p className="text-gray-500 text-sm">Our Team Culture</p>
-                </div>
+                <img src='https://static.investindia.gov.in/s3fs-public/2020-12/shutterstock_1262330791.jpg' className='w-full h-full rounded-md object-cover'/>
               </div>
             </div>
             <div className="order-1 lg:order-2">
@@ -68,7 +61,7 @@ export function ImpactUI() {
       </section>
 
       {/* Milestones Section */}
-      <section className="py-16 lg:py-24 bg-gray-50">
+      <section className="py-10 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
@@ -97,7 +90,7 @@ export function ImpactUI() {
       </section>
 
       {/* Trust Indicators */}
-      <section className="py-16 lg:py-24">
+      <section className="py-10 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
@@ -132,7 +125,7 @@ export function ImpactUI() {
       </section>
 
       {/* Values & Vision */}
-      <section className="py-16 lg:py-24 bg-gray-50">
+      <section className="py-10 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             <div>

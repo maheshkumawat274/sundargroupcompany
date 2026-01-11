@@ -26,13 +26,15 @@ import ContactusPrintPage from './pages/branchlandingpages/sundarprint/Contactus
 import Aboutprintpage from './pages/branchlandingpages/sundarprint/aboutprintpage';
 import LeadershipSection from './components/home/leadership/LeaderShipSection';
 import LeaderShipDetail from './components/home/leadership/LeadershipDetail';
-import AccountLayout from './components/branchlandingpage/sundarprint/account/AccountLayout';
-import UserDashboard from './components/branchlandingpage/sundarprint/account/UserDashboard';
-import UserSettings from './components/branchlandingpage/sundarprint/account/UserSettings';
 import { AuthProvider } from './components/branchlandingpage/sundarprint/context/AuthContext';
 import WholesalerRegister from './components/branchlandingpage/sundarprint/account/WholeRegister';
 import WholesalerLogin from './components/branchlandingpage/sundarprint/account/Wholesallerlogin';
 import ForgotPassword from './components/branchlandingpage/sundarprint/account/ForgetPassword';
+import UserDashboard from './pages/branchlandingpages/sundarprint/user/UserDashboard';
+import LikedProducts from './pages/branchlandingpages/sundarprint/user/LikeProduct';
+import Cart from './pages/branchlandingpages/sundarprint/user/Cart';
+import Orders from './pages/branchlandingpages/sundarprint/user/Order';
+import Payments from './pages/branchlandingpages/sundarprint/user/Histroy';
 
 const App: React.FC = () => {
   return (
@@ -69,9 +71,11 @@ const App: React.FC = () => {
         <Route path="/branch/sundar-resort/services" element={<ResortServicesPage />} />
         <Route path="/branch/sundar-resort/services/:serviceSlug" element={<ResortServiceLandingPage />} />
         {/* user account */}
-        <Route path="/account" element={<AccountLayout />}/>
-        <Route path="/dashboard" element={<UserDashboard />} />
-        <Route path="/settings" element={<UserSettings />} />
+        <Route path="/user" element={<UserDashboard />} />
+        <Route path="/user/liked" element={<LikedProducts />} />
+        <Route path="/user/cart" element={<Cart />} />
+        <Route path="/user/orders" element={<Orders />} />
+        <Route path="/user/payments" element={<Payments/>} />
         <Route path="/branch/sundar-print/wholesaler/register" element={<WholesalerRegister />} />
         <Route path="/branch/sundar-print/wholesaler/login" element={<WholesalerLogin />} />
         <Route path="/branch/sundar-print/wholesaler/forgot-password" element={<ForgotPassword />} />

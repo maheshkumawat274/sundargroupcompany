@@ -1,5 +1,6 @@
 import React from "react";
 import { Instagram, Facebook, Youtube } from "lucide-react";
+import { Link } from "react-router-dom";
 
 /* =====================
    TYPE
@@ -65,10 +66,8 @@ const BranchCard: React.FC = () => {
           className="min-w-[270px] sm:min-w-[300px] md:min-w-[360px]"
         >
           {/* CARD CLICK → NEW TAB */}
-          <a
-            href={branch.path}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to={branch.path}
           >
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 group cursor-pointer">
 
@@ -148,7 +147,7 @@ const BranchCard: React.FC = () => {
               </div>
 
             </div>
-          </a>
+          </Link>
         </div>
       ))}
     </div>

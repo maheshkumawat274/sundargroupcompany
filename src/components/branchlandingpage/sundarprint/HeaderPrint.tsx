@@ -6,10 +6,16 @@ import WishlistModal from './WishListModelPrint';
 
 const HeaderPrint: React.FC = () => {
   const { cartCount, wishlistItems } = useCart();
+
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+
+  // 🔐 LOGIN STATE (localStorage based)
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(
+    Boolean(localStorage.getItem("user"))
+  );
 
   const location = useLocation();
   const profileRef = useRef<HTMLDivElement>(null);
@@ -35,6 +41,12 @@ const HeaderPrint: React.FC = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setIsLoggedIn(false);
+    setIsProfileOpen(false);
+  };
+
   return (
     <>
       <header className="bg-white py-1 fixed top-0 z-50 w-full border-b border-gray-100">
@@ -43,22 +55,22 @@ const HeaderPrint: React.FC = () => {
 
             {/* LOGO */}
             <div className="h-full w-24 overflow-hidden flex items-center">
-                     <Link to="/" className="block h-full w-full">
-                       <img
-                         src="/imgs/logo.png"
-                         alt="Podcast Logo"
-                         className="h-full w-full object-cover scale-125"
-                       />
-                     </Link>
-                   </div>
+              <Link to="/" className="block h-full w-full">
+                <img
+                  src="/imgs/logo.png"
+                  alt="Company Logo"
+                  className="h-full w-full object-cover scale-125"
+                />
+              </Link>
+            </div>
 
             {/* DESKTOP NAV */}
             <nav className="hidden md:flex items-center space-x-8">
               {isHome ? (
                 <>
-                  <a onClick={() => scrollToSection('home')} className="nav-link">Home</a>
-                  <a onClick={() => scrollToSection('about')} className="nav-link">About Us</a>
-                  <a onClick={() => scrollToSection('contact')} className="nav-link">Contact Us</a>
+                  <a onClick={() => scrollToSection('home')} className="nav-link cursor-pointer">Home</a>
+                  <a onClick={() => scrollToSection('about')} className="nav-link cursor-pointer">About Us</a>
+                  <a onClick={() => scrollToSection('contact')} className="nav-link cursor-pointer">Contact Us</a>
                 </>
               ) : (
                 <>
@@ -75,11 +87,9 @@ const HeaderPrint: React.FC = () => {
               {/* Wishlist */}
               <button
                 onClick={() => setIsWishlistOpen(true)}
-                className="relative p-2 text-gray-700 hover:text-rose-600 transition-colors"
+                className="relative p-2 text-gray-700 text-xl hover:text-rose-600"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
+                ❤️
                 {wishlistItems.length > 0 && (
                   <span className="absolute -top-1 -right-1 bg-rose-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
                     {wishlistItems.length}
@@ -90,11 +100,9 @@ const HeaderPrint: React.FC = () => {
               {/* Cart */}
               <button
                 onClick={() => setIsCartOpen(true)}
-                className="relative p-2 text-gray-700 hover:text-rose-600 transition-colors"
+                className="relative p-2 text-gray-700 text-xl hover:text-rose-600"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                </svg>
+                🛒
                 {cartCount > 0 && (
                   <span className="absolute -top-1 -right-1 bg-rose-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
                     {cartCount}
@@ -102,37 +110,41 @@ const HeaderPrint: React.FC = () => {
                 )}
               </button>
 
-              {/* PROFILE */}
-              <div className="relative" ref={profileRef}>
-                <button
-                  onClick={() => setIsProfileOpen(!isProfileOpen)}
-                  className="p-2"
+              {/* SIGN IN / PROFILE */}
+              {!isLoggedIn ? (
+                <Link
+                  to="/branch/sundar-print/wholesaler/login"
+                  className="hidden md:block text-sm font-medium text-gray-700 hover:text-rose-600"
                 >
-                  👤
-                </button>
+                  Sign In
+                </Link>
+              ) : (
+                <div className="relative" ref={profileRef}>
+                  <button
+                    onClick={() => setIsProfileOpen(!isProfileOpen)}
+                    className="p-2 text-xl"
+                  >
+                    👤
+                  </button>
 
-                {isProfileOpen && (
-                  <div className="absolute right-0 top-11 w-48 bg-white border rounded-lg shadow-lg z-50">
-                    <Link
-                      to="/account/dashboard"
-                      onClick={() => setIsProfileOpen(false)}
-                      className="block px-4 py-2 hover:bg-gray-100"
-                    >
-                      Dashboard
-                    </Link>
-                    <Link
-                      to="/account/settings"
-                      onClick={() => setIsProfileOpen(false)}
-                      className="block px-4 py-2 hover:bg-gray-100"
-                    >
-                      Settings
-                    </Link>
-                    <button className="w-full text-left px-4 py-2 hover:bg-gray-100">
-                      Logout
-                    </button>
-                  </div>
-                )}
-              </div>
+                  {isProfileOpen && (
+                    <div className="absolute right-0 mt-2 w-40 bg-white border rounded shadow">
+                      <Link
+                        to="/user"
+                        className="block px-4 py-2 text-sm hover:bg-gray-100"
+                      >
+                        My Account
+                      </Link>
+                      <button
+                        onClick={handleLogout}
+                        className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
+                      >
+                        Logout
+                      </button>
+                    </div>
+                  )}
+                </div>
+              )}
 
               {/* MOBILE MENU */}
               <button
@@ -146,10 +158,24 @@ const HeaderPrint: React.FC = () => {
 
           {/* MOBILE NAV */}
           {isMobileMenuOpen && (
-            <nav className="md:hidden py-4 border-t">
-              <Link to="/" className="block py-2">Home</Link>
-              <Link to="/about" className="block py-2">About</Link>
-              <Link to="/contact" className="block py-2">Contact</Link>
+            <nav className="md:hidden py-4 border-t space-y-2">
+              <Link to="/" className="block">Home</Link>
+              <Link to="/about" className="block">About</Link>
+              <Link to="/contact" className="block">Contact</Link>
+
+              {!isLoggedIn ? (
+                <Link to="/signin" className="block font-medium">Sign In</Link>
+              ) : (
+                <>
+                  <Link to="/user" className="block">My Account</Link>
+                  <button
+                    onClick={handleLogout}
+                    className="block text-left text-red-600"
+                  >
+                    Logout
+                  </button>
+                </>
+              )}
             </nav>
           )}
         </div>

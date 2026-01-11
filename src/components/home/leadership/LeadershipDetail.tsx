@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { leadershipData } from "./Leadership";
+import Navbar from "../../header/Navbar";
 
 const LeaderShipDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -17,6 +18,8 @@ const LeaderShipDetail = () => {
   }
 
   return (
+    <>
+    <Navbar/>
     <section className="w-full bg-white py-16 px-4 md:px-20">
       <div className="max-w-5xl mx-auto">
 
@@ -41,6 +44,7 @@ const LeaderShipDetail = () => {
 
       </div>
     </section>
+    </>
   );
 };
 
