@@ -35,6 +35,7 @@ import LikedProducts from './pages/branchlandingpages/sundarprint/user/LikeProdu
 import Cart from './pages/branchlandingpages/sundarprint/user/Cart';
 import Orders from './pages/branchlandingpages/sundarprint/user/Order';
 import Payments from './pages/branchlandingpages/sundarprint/user/Histroy';
+import SubCategoryPagePrint from './pages/branchlandingpages/sundarprint/SubCategoryPagePrint';
 
 const App: React.FC = () => {
   return (
@@ -65,6 +66,8 @@ const App: React.FC = () => {
         <Route path="/branch/sundar-print/contact-us" element={<ContactusPrintPage />} />
           {/* sundar print categories route */}
           <Route path="/category/:slug" element={<CategoryPagePrint />} />
+          
+<Route path="/branch/sundar-print/category/:categorySlug" element={<SubCategoryPagePrint />} />
           
         <Route path='/branch/sundar-developer' element={<SundarDeveloperPage/>}/>
         {/* Resort Services routes */}

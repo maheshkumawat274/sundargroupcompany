@@ -1,34 +1,38 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import React, { useEffect, useMemo } from 'react';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import { 
   getProductsByMainCategory,
-  getSubCategoriesForMainCategory,
-  categories 
+  getProductsBySubCategory,
+  categories,
+  getSubCategoriesForMainCategory
 } from '../../../components/branchlandingpage/sundarprint/dataproductprint/printproductsdata';
 import ProductCardPrint from '../../../components/branchlandingpage/sundarprint/ProductCardPrint';
 import HeaderPrint from '../../../components/branchlandingpage/sundarprint/HeaderPrint';
 
-const CategoryPagePrint: React.FC = () => {
-  const { slug } = useParams<{ slug: string }>();
+const SubCategoryPagePrint: React.FC = () => {
+  const { categorySlug } = useParams<{ categorySlug: string }>();
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const subCategoryParam = queryParams.get('subCategory');
   
-  // Get products for main category
-  const products = getProductsByMainCategory(slug || '');
-  const category = categories.find(c => c.slug === slug);
-  const subCategories = getSubCategoriesForMainCategory(slug || '');
-  
-  // Filter products by sub-category if subCategory query param exists
-  const [selectedSubCategory, setSelectedSubCategory] = useState<string>('all');
+  const [selectedSubCategory, setSelectedSubCategory] = React.useState<string>(subCategoryParam || 'all');
 
+  const products = useMemo(() => {
+    if (!categorySlug) return [];
+    if (selectedSubCategory === 'all') {
+      return getProductsByMainCategory(categorySlug);
+    }
+    return getProductsBySubCategory(categorySlug, selectedSubCategory);
+  }, [categorySlug, selectedSubCategory]);
+  
+  const mainCategory = categories.find(c => c.slug === categorySlug);
+  const subCategories = getSubCategoriesForMainCategory(categorySlug || '');
+  
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [slug]);
+  }, [categorySlug]);
 
-  const filteredProducts = useMemo(() => {
-    if (selectedSubCategory === 'all') return products;
-    return products.filter(product => product.category === selectedSubCategory);
-  }, [selectedSubCategory, products]);
-
-  if (!category) {
+  if (!mainCategory) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center bg-gray-50 px-4">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">Category Not Found</h2>
@@ -43,6 +47,11 @@ const CategoryPagePrint: React.FC = () => {
     );
   }
 
+  // Find the current sub-category name
+  const currentSubCategoryName = selectedSubCategory === 'all' 
+    ? mainCategory.name 
+    : selectedSubCategory;
+
   return (
     <> 
       <HeaderPrint/>
@@ -54,14 +63,22 @@ const CategoryPagePrint: React.FC = () => {
             <span>/</span>
             <Link to="/branch/sundar-print" className="hover:text-rose-600 transition-colors">Sundar Print</Link>
             <span>/</span>
-            <span className="text-gray-900 font-medium">{category.name}</span>
+            <Link to={`/branch/sundar-print/category/${categorySlug}`} className="hover:text-rose-600 transition-colors">
+              {mainCategory.name}
+            </Link>
+            {selectedSubCategory !== 'all' && (
+              <>
+                <span>/</span>
+                <span className="text-gray-900 font-medium">{selectedSubCategory}</span>
+              </>
+            )}
           </div>
 
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{category.name}</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{currentSubCategoryName}</h1>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Explore our exclusive collection of {category.name}, featuring premium designs and quality craftsmanship.
+              Explore our exclusive collection of {currentSubCategoryName}, featuring premium designs and quality craftsmanship.
             </p>
           </div>
 
@@ -77,7 +94,7 @@ const CategoryPagePrint: React.FC = () => {
                       : 'bg-white text-gray-700 border border-gray-300 hover:border-rose-600 hover:text-rose-600'
                   }`}
                 >
-                  All Products
+                  All {mainCategory.name}
                 </button>
                 {subCategories.map((subCat) => (
                   <button
@@ -99,15 +116,15 @@ const CategoryPagePrint: React.FC = () => {
           {/* Products Count */}
           <div className="mb-8 flex justify-between items-center">
             <p className="text-gray-600">
-              Showing <span className="font-semibold">{filteredProducts.length}</span> products
+              Showing <span className="font-semibold">{products.length}</span> products
               {selectedSubCategory !== 'all' && ` in "${selectedSubCategory}"`}
             </p>
           </div>
 
           {/* Products Grid */}
-          {filteredProducts.length > 0 ? (
+          {products.length > 0 ? (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
-              {filteredProducts.map((product) => (
+              {products.map((product) => (
                 <ProductCardPrint key={product.id} product={product} />
               ))}
             </div>
@@ -116,7 +133,7 @@ const CategoryPagePrint: React.FC = () => {
               <p className="text-gray-500 text-lg mb-4">
                 {selectedSubCategory !== 'all' 
                   ? `No products found in "${selectedSubCategory}"`
-                  : `No products found in "${category.name}"`
+                  : `No products found in "${mainCategory.name}"`
                 }
               </p>
               {selectedSubCategory !== 'all' && (
@@ -124,7 +141,7 @@ const CategoryPagePrint: React.FC = () => {
                   onClick={() => setSelectedSubCategory('all')}
                   className="px-6 py-2 bg-rose-600 text-white rounded-lg hover:bg-rose-700 transition-colors"
                 >
-                  View All Products
+                  View All Products in {mainCategory.name}
                 </button>
               )}
             </div>
@@ -135,4 +152,4 @@ const CategoryPagePrint: React.FC = () => {
   );
 };
 
-export default CategoryPagePrint;
+export default SubCategoryPagePrint;

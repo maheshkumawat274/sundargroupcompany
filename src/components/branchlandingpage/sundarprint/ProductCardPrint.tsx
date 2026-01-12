@@ -3,6 +3,7 @@ import type { Product } from "./types";
 import { useCart } from "./contextprint/useCart";
 import QuickViewModal from "./QuickViewModal";
 import { Link } from "react-router-dom";
+import { useAuth } from "./context/AuthContext.helpers";
 
 interface ProductCardProps {
   product: Product;
@@ -10,14 +11,9 @@ interface ProductCardProps {
 
 const ProductCardPrint: React.FC<ProductCardProps> = ({ product }) => {
   const { addToCart, addToWishlist, isInWishlist, isInCart } = useCart();
+  const { isLoggedIn } = useAuth();
   const [isHovered, setIsHovered] = useState(false);
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
-
-  /* =====================
-     LOGIN CHECK (TEMP)
-     Later replace with API / Auth context
-  ===================== */
-  const isLoggedIn = false; // 🔴 change later with real auth
 
   // const discount = product.originalPrice
   //   ? Math.round(

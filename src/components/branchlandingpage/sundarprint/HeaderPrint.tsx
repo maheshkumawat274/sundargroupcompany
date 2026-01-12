@@ -3,19 +3,16 @@ import { Link, useLocation } from 'react-router-dom';
 import { useCart } from './contextprint/useCart';
 import CartModalPrint from './CardModelPrint';
 import WishlistModal from './WishListModelPrint';
+import { useAuth } from './context/AuthContext.helpers';
 
 const HeaderPrint: React.FC = () => {
   const { cartCount, wishlistItems } = useCart();
+  const { isLoggedIn, logout } = useAuth();
 
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
-
-  // 🔐 LOGIN STATE (localStorage based)
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(
-    Boolean(localStorage.getItem("user"))
-  );
 
   const location = useLocation();
   const profileRef = useRef<HTMLDivElement>(null);
@@ -42,8 +39,7 @@ const HeaderPrint: React.FC = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("user");
-    setIsLoggedIn(false);
+    logout();
     setIsProfileOpen(false);
   };
 

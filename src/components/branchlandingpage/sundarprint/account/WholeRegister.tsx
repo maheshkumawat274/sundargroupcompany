@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import HeaderPrint from "../HeaderPrint";
 
 /* =====================
    COUNTRY & STATE DATA
@@ -128,7 +129,9 @@ const WholesalerRegister: React.FC = () => {
   };
 
   return (
-    <section className="bg-rose-50 min-h-screen py-5 flex items-center justify-center px-4">
+   <>
+   <HeaderPrint/>
+     <section className="bg-rose-50 min-h-screen py-20 flex items-center justify-center px-4">
       <form
         onSubmit={handleSubmit}
         className="bg-white w-full max-w-5xl rounded-xl shadow-lg p-3 sm:p-8"
@@ -274,6 +277,7 @@ const WholesalerRegister: React.FC = () => {
         </button>
       </form>
     </section>
+   </>
   );
 };
 

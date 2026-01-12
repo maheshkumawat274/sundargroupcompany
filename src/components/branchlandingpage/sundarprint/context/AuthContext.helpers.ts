@@ -5,13 +5,24 @@ export interface User {
   email: string;
 }
 
-export const defaultUser: User = {
-  name: "Demo User",
-  email: "demo@sundarprint.com",
-};
+/* 👇 Auth Context Shape */
+export interface AuthContextType {
+  user: User | null;
+  isLoggedIn: boolean;
+  login: (user: User) => void;
+  logout: () => void;
+}
 
-export const AuthContext = createContext<{ user: User | null }>({
+/* 👇 default user (guest) */
+export const defaultUser: User | null = null;
+
+/* 👇 Context */
+export const AuthContext = createContext<AuthContextType>({
   user: defaultUser,
+  isLoggedIn: false,
+  login: () => {},
+  logout: () => {},
 });
 
+/* 👇 Hook */
 export const useAuth = () => useContext(AuthContext);
