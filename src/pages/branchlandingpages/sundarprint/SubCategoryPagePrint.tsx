@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
 import { 
-  getProductsBySubCategory,
+  allProducts, // ✅ allProducts import करें
   getSubCategoriesForMainCategory
 } from '../../../components/branchlandingpage/sundarprint/dataproductprint/printproductsdata';
 import ProductCardPrint from '../../../components/branchlandingpage/sundarprint/ProductCardPrint';
@@ -23,15 +23,18 @@ const SubCategoryPagePrint: React.FC = () => {
     return '';
   });
 
-  // Selected sub-category के products
+  // ✅ DIRECTLY FILTER FROM allProducts BY CATEGORY
   const products = useMemo(() => {
-    if (!categorySlug || !selectedSubCategory) return [];
-    return getProductsBySubCategory(categorySlug, selectedSubCategory);
-  }, [categorySlug, selectedSubCategory]);
+    if (!selectedSubCategory) return [];
+    
+    // Category से directly filter करें
+    return allProducts.filter(product => 
+      product.category === selectedSubCategory
+    );
+  }, [selectedSubCategory]);
 
-  // Main category name (breadcrumb के लिए)
+  // Main category name
   const getMainCategoryName = () => {
-    // यहाँ आपको main category name hardcode करना पड़ सकता है या API से fetch करना पड़ सकता है
     const categoryMap: Record<string, string> = {
       'casual-wear': 'Casual Wear',
       'daily-wear': 'Daily Wear', 
@@ -42,7 +45,7 @@ const SubCategoryPagePrint: React.FC = () => {
   };
 
   const mainCategoryName = getMainCategoryName();
-
+  console.log('Main Category:', mainCategoryName);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [categorySlug, selectedSubCategory]);
@@ -99,13 +102,6 @@ const SubCategoryPagePrint: React.FC = () => {
             <Link to="/" className="hover:text-rose-600 transition-colors">Home</Link>
             <span>/</span>
             <Link to="/branch/sundar-print" className="hover:text-rose-600 transition-colors">Sundar Print</Link>
-            <span>/</span>
-            <Link 
-              to={`/branch/sundar-print/category/${categorySlug}`} 
-              className="hover:text-rose-600 transition-colors"
-            >
-              {mainCategoryName}
-            </Link>
             <span>/</span>
             <span className="text-gray-900 font-medium">{selectedSubCategory}</span>
           </div>
