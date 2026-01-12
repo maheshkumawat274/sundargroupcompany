@@ -112,7 +112,7 @@ const ProductCardPrint: React.FC<ProductCardProps> = ({ product }) => {
         {/* PRICE – ONLY AFTER LOGIN */}
         {!isLoggedIn && (
           <div className="mt-4">
-            <button className="w-full text-sm font-medium py-2.5 rounded-lg border border-rose-600 text-rose-600 hover:bg-rose-600 hover:text-white transition">
+            <button className="w-full text-sm font-medium py-2.5 rounded-lg border hover:border-rose-600 text-white bg-rose-600 hover:bg-white hover:text-rose-600 transition">
               <Link
               to="/branch/sundar-print/wholesaler/register"
               onClick={() => {

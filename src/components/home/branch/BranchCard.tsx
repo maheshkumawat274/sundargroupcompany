@@ -21,17 +21,6 @@ interface Branch {
 const branchData: Branch[] = [
   {
     id: 1,
-    category: "Hospitality",
-    name: "Sundar Resort",
-    tagline: "Nature's Haven, Luxury Redefined",
-    description:
-      "A premium resort experience surrounded by nature, offering luxury stays, events, and unforgettable hospitality.",
-    heroImage:
-      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=800",
-    path: "/branch/sundar-resort",
-  },
-  {
-    id: 2,
     category: "Textile Printing",
     name: "Sundar Print",
     tagline: "Crafting Elegance in Every Thread",
@@ -41,6 +30,18 @@ const branchData: Branch[] = [
       "https://tiimg.tistatic.com/fp/1/008/297/ladies-machine-embroidery-silk-saree-for-party-wear-069.jpg",
     path: "/branch/sundar-print",
   },
+  {
+    id: 2,
+    category: "Hospitality",
+    name: "Sundar Resort",
+    tagline: "Nature's Haven, Luxury Redefined",
+    description:
+      "A premium resort experience surrounded by nature, offering luxury stays, events, and unforgettable hospitality.",
+    heroImage:
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=800",
+    path: "/branch/sundar-resort",
+  },
+  
   {
     id: 3,
     category: "Construction & Development",
@@ -63,7 +64,7 @@ const BranchCard: React.FC = () => {
       {branchData.map((branch) => (
         <div
           key={branch.id}
-          className="min-w-[270px] sm:min-w-[300px] md:min-w-[360px]"
+          className="min-w-[270px] sm:min-w-[300px] md:min-w-[360px] py-3"
         >
           {/* CARD CLICK → NEW TAB */}
           <Link
