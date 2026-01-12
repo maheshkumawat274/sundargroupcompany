@@ -72,7 +72,7 @@ export const SERVICES: Service[] = [
     title: "Swimming Pool",
     shortDescription: "An azure oasis to beat the heat of Ahmedabad.",
     longDescription: "Our Olympic-sized swimming pool offers a refreshing escape. With a dedicated kids' zone and poolside lounge, it's the perfect spot for relaxation and recreation.",
-    imageUrl: "https://images.unsplash.com/photo-1565462002772-74892c906660?auto=format&fit=crop&q=80&w=1200",
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/92/Backyardpool.jpg",
     amenities: [
       { icon: "🏊", label: "Temperature Control" },
       { icon: "🍹", label: "Poolside Bar" },
@@ -85,7 +85,7 @@ export const SERVICES: Service[] = [
     title: "Grand Dining Hall",
     shortDescription: "Exquisite culinary journeys through Gujarat and beyond.",
     longDescription: "Our master chefs bring you the authentic taste of Indian heritage. From traditional Gujarati Thalis to International cuisines, every meal is a celebration of flavor.",
-    imageUrl: "https://images.unsplash.com/photo-1550966841-3ee7adac1afb?auto=format&fit=crop&q=80&w=1200",
+    imageUrl: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/ef/1a/8f/the-grand-dining-hall.jpg?w=900&h=500&s=1",
     amenities: [
       { icon: "🥘", label: "Buffet & A-la-carte" },
       { icon: "👨‍🍳", label: "Live Kitchen" },
@@ -111,7 +111,7 @@ export const SERVICES: Service[] = [
     title: "Lush Green Gardens",
     shortDescription: "Manicured lawns for peaceful strolls and outdoor parties.",
     longDescription: "Spread over 2 acres, our gardens provide a tranquil environment. Dotted with exotic flowers and traditional gazebos, it's a paradise for nature lovers.",
-    imageUrl: "https://images.unsplash.com/photo-1558905619-171549ef83a9?auto=format&fit=crop&q=80&w=1200",
+    imageUrl: "https://img.freepik.com/free-photo/city-park_1127-3330.jpg",
     amenities: [
       { icon: "🦋", label: "Butterfly Garden" },
       { icon: "🚶", label: "Walking Path" },

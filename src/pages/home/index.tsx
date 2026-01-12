@@ -5,7 +5,6 @@ import WhyChooseUs from '../../components/home/WhyChoose';
 import HomeAboutSection from '../../components/home/HomeAboutSection';
 import TopSectionMain from '../../components/home/TopSection';
 import StrategySection from '../../components/home/OurStrategy/StrategySection';
-import InSumSection from '../../components/home/InSumSection';
 import FaqSection from '../../components/home/FAQ';
 import ContactHome from '../../components/home/ContactHome';
 import LeadershipSection from '../../components/home/leadership/LeaderShipSection';
@@ -24,7 +23,6 @@ const HomePage: React.FC = () => {
       <HomeBlogSection/>
       
       <ContactHome/>
-      <InSumSection/>
       <FaqSection/>
     </>
   );
