@@ -17,11 +17,11 @@
 
 html, body {
   scroll-behavior: auto;
- font-family: system-ui;
+ font-family: 'Pacifico', cursive;
   font-size: large;
 }
 header li{
-   font-family: system-ui;
+   font-family: 'Pacifico', cursive;
 }
 
 @keyframes slideUphero {

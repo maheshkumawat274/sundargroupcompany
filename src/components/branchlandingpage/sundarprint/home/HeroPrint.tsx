@@ -5,8 +5,6 @@ const heroSlides = [
     id: 1,
     title: "Sundar Print",
     highlight: "Sundar",
-    description:
-      "Discover the finest collection of printed sarees crafted with precision and passion. Each piece reflects elegance, tradition, and modern design.",
     image:
       "https://peachmode.com/cdn/shop/products/chiku-casual-wear-printed-georgette-saree-peachmode-1.jpg?v=1669018153&width=2000",
   },
@@ -14,8 +12,6 @@ const heroSlides = [
     id: 2,
     title: "Premium Sarees",
     highlight: "Premium",
-    description:
-      "Experience premium quality fabrics with exquisite prints that make every occasion special and memorable.",
     image:
       "https://myblacktree.com/cdn/shop/files/multicolor-casual-wear-printed-silk-saree-peachmode-1_c2839cbc-943c-4834-8a47-77c20987d5d8.jpg?v=1743377332&width=1946",
   },
@@ -23,8 +19,6 @@ const heroSlides = [
     id: 3,
     title: "Traditional Elegance",
     highlight: "Traditional",
-    description:
-      "A perfect blend of tradition and contemporary fashion designed for modern Indian women.",
     image:
       "https://peachmode.com/cdn/shop/products/unique-green-and-blue-casual-wear-printed-art-silk-saree-peachmode-1.jpg?v=1669038797&width=2000",
   },
@@ -70,10 +64,6 @@ const HeroPrint: React.FC = () => {
             </span>{" "}
             Print
           </h1>
-
-          <p className="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed">
-            {heroSlides[current].description}
-          </p>
 
           <a
             href="#categories"
