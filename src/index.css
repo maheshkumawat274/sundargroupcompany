@@ -6,6 +6,13 @@
 @import "swiper/css/pagination";
 @import "swiper/css/autoplay";
 
+
+body {
+  font-family: "Poppins", sans-serif;
+  
+}
+
+
 .slick-slide {
   display: flex !important;
   justify-content: center !important;
@@ -17,12 +24,10 @@
 
 html, body {
   scroll-behavior: auto;
- font-family: 'Pacifico', cursive;
-  font-size: large;
 }
-header li{
-   font-family: 'Pacifico', cursive;
-}
+
+
+
 
 @keyframes slideUphero {
   0% {
