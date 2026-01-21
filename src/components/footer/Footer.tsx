@@ -16,8 +16,8 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-950 text-slate-300 pt-20 pb-10 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6">
+    <footer className="bg-slate-950 text-slate-300 pt-20 pb-10 border-t border-white/5 px-4 md:px-16">
+      <div className=" mx-auto px-6">
         
         {/* Top Section: Group Branding & Socials */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-10 pb-16 border-b border-white/10">
